@@ -1,6 +1,7 @@
 #import this # delete the first hashtag to see the truth
 
 #deleting and inserting different stuff
+
 baba = ["mama","papa","babu"]
 message = f"my first anal was with\n\t{baba[1].title()}"
 print (message)
@@ -9,9 +10,76 @@ print (baba)
 del baba[1]
 print (baba)
 
+
 #popping
+
 poped_vary=baba.pop()
 poped_vary1=baba.pop(1)
 print (baba)
 print (poped_vary)
 print (poped_vary1)
+print (f"I really like my {poped_vary1.title()}\n\t so much")
+
+
+#remove
+
+kaag = ["mama","papa","babu","kaitu"]
+kaag.remove("papa")
+print (kaag)
+
+kaag = ["mama","papa","babu","kaitu"]
+print (kaag)
+x="papa"
+kaag.remove(x)
+print (f"Well, sometimes some things happen, this is why i had to delete {x} , thats why i have now\n\t{kaag}")
+
+
+#some additional tasks
+
+guests = ["robert","Lusi","Karl","Mike","Piggy"]
+for i in guests:
+    print (i)
+print (f"\n{guests[3]} cant come, cause he is ill\n")
+guests[3]="Josh"
+guests.append("Bill")
+for i in guests:
+    print (i)
+
+print ("\nNew Guests\n")
+guests.insert(0,"Clare")
+guests.insert(4,"Michael")
+for i in guests:
+    print (i)
+
+
+print ("\nremoving guests\n")
+while (len(guests))>2:
+    guests.pop() 
+print (guests)
+for i in guests:
+    print (f"{i}, is still in list")
+
+print ("\nDeleting each other\n")
+while len(guests)!=0:
+    del guests[0]
+
+print (guests)
+
+
+#sort
+
+gadgets = ["telephone","Tesla","headphones","fridge","pip-boy"]
+print (f"{gadgets} before sorting")
+gadgets.sort()
+print (f"{gadgets} after sorting")
+gadgets.sort(reverse=True)
+print (f"{gadgets} after reverse sorting\n")
+
+
+#sorted
+
+gadgets = ["telephone","Tesla","headphones","fridge","pip-boy"]
+print (f"{gadgets} this is an original list\n")
+print (f"{sorted(gadgets)} aint an original list\n")
+
+
