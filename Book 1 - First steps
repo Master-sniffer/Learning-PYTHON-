@@ -1,0 +1,17 @@
+#import this # delete the first hashtag to see the truth
+
+#deleting and inserting different stuff
+baba = ["mama","papa","babu"]
+message = f"my first anal was with\n\t{baba[1].title()}"
+print (message)
+baba.insert (1,"jui")
+print (baba)
+del baba[1]
+print (baba)
+
+#popping
+poped_vary=baba.pop()
+poped_vary1=baba.pop(1)
+print (baba)
+print (poped_vary)
+print (poped_vary1)
