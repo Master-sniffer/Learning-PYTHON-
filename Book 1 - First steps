@@ -83,3 +83,42 @@ print (f"{gadgets} this is an original list\n")
 print (f"{sorted(gadgets)} aint an original list\n")
 
 
+#reverse (rotates the list on 180 degrees)
+
+gadgets = ["telephone","Tesla","headphones","fridge","pip-boy"]
+print (gadgets)
+gadgets.reverse()
+print (f"{gadgets} this a reversed list\n")
+
+
+#some additional tasks 
+
+countries=["UK","New-Zeland","America","Russia","Italy"]
+print (countries)
+print (sorted(countries))
+print (countries)
+print(sorted(countries, reverse=True))
+print (countries)
+countries.reverse()
+print (countries)
+countries.reverse()
+print (countries)
+countries.sort()
+print (countries)
+countries.sort(reverse=True)
+print (countries)
+
+count=["1","2","3","4"]
+count.append("5")
+count.insert(3,"10")
+del count[1]
+count.reverse()
+count.sort()
+count.pop()
+count.remove("3")
+print (count)
+
+
+
+
+
