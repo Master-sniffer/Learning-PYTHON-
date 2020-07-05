@@ -109,7 +109,7 @@ countries.sort(reverse=True)
 print (countries)
 
 count=["1","2","3","4"]
-count.append("5")
+count.append("5") #добавили элемент
 count.insert(3,"10")
 del count[1]
 count.reverse()
@@ -119,6 +119,21 @@ count.remove("3")
 print (count)
 
 
+#for 
+
+magic=["Love","Hate","Guns","Drugs"]
+for mag in magic:
+    print (mag)
+
+for mag in magic:
+    print (f"{mag.title()} nice ") #переменная mag идет в порядке возрастания в списке magic
+    print (f"mb we can have some fun, what u think, {mag.title()}?")
+
+
+print ("\nThats all for today folks !")
+
+
+d
 
 
 
