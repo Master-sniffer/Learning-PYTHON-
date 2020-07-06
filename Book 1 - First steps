@@ -214,6 +214,212 @@ spisok=[value**3 for value in range(1,11)]
 print (spisok)
 
 
+#working with the lists (slices)
+
+players=["Michael","Lusiel","Mary","Comstock","Booker"]
+print (players[0:3]) #выводит игроков от первого индекса до индекса, который мы указали -1
+print (players[1:4]) 
+print (players[:4]) # выводит всех игроков с самого начала списка до 4 индекса - 1
+print (players[2:]) #выводит всех игроков со 2 индеса до конца
+print (players[-3:]) #выводит всех игроков с самого начала до -3 индекса включительно ( что есть 2 индекс)
+
+#brute force
+
+print ("Here will be first 3 players\n")
+for i in players[:3]:
+    print (i)
+
+#copying lists and some experiments with them
+
+play=players[:] #так мы можем копировать списки
+print ("\n")
+print (play)
+
+uno=["case","club","money"]
+des=uno[:]
+uno.insert(2,"love")
+des.append("Haram")
+print (uno,des)
+
+fir=["uno","des"]
+sec=fir #так мы показали, что sec=fir, что показывает питону, что любое изменение в одном из них, должно примениться и в других списках
+fir.append("5")
+sec.insert(0,"MAMA")
+print ("First list",fir,"\nSecond list",sec)
+
+#some additional tasks
+
+lis=play[:]
+print ("First three elements are", lis[:3])
+lis.append("sup")
+lis.append("dub")
+lis.append("har")
+lis.append("bar")
+print (lis)
+print ("Three elements in the middle are ", lis[3:6])
+print ("Three elements in the end are", lis[6:])
+
+pizza=["Margarita","Pepperoni","Diablo"]
+fr_pizza=pizza[:]
+pizza.append("Pineapple")
+fr_pizza.append("lasagnia")
+print ("\nMy pizza:")
+for i in pizza:
+    print (i)
+print("\nFriend's pizza:")
+for i in fr_pizza:
+    print (i)
+
+
+#Tuple
+
+dimension=(100,500)
+print (dimension[0],dimension[1])
+dimens=(102000,) #Кортеж с одним элементом
+print (dimens[0])
+
+for i in dimension: #перебор
+    print (i)
+
+print ("non-modified tuple", dimension)
+dimension=(500,1000)
+print ("Modified tuple", dimension,"\n")
+
+dimens=(100,200,300,400,500)
+for i in dimens:
+    print (i)
+
+
+# if
+
+lis=["junk","dank","horny"]
+for i in lis:
+    if i=="dank": #если переменная i будет равна dank, то в такое случае мы выводим 1 исход событий, в противном, 2 исход
+        print (i.upper())
+    else:
+        print (i.title())
+
+x="DANk"
+if x.lower()=="dank":
+    print("okay", x.lower())
+
+#if + !=
+
+x="Mom"
+if x!="mom":
+    print ("Nice")
+
+#check two cases at one time (and)
+
+age1=20
+age2=25
+age=15
+if (age1>age) and (age2>age):
+    print ("These both guys are olded than age")
+
+#using or
+
+age1=10
+age2=15
+age=13
+if age1>age or age2>age:
+    print ("well-well")
+
+
+#checking if item in the list
+
+lis=["hello","brolo","hi","bro"]
+k="hi"
+if k in lis:
+    print ("He is in the list")
+
+#check the lack of the item in the list
+
+dis=lis[:]
+k="bor"
+if k not in dis:
+    print("He is not in list")
+
+#some tasks
+
+li=[1,2,3,4]
+bi=4
+if bi in li:
+    print (101)
+if 5 not in li:
+    print ("drake")
+
+k="GORGe"
+lis=["gorge","floyd"]
+if k.lower() in lis:
+    print ("Hell yeah")
+
+
+#if else
+
+age=17
+if age==15: #проверяет переменную равна ли она 15 ( нет )
+    print("Nice")
+else: # если условие в if не выполняется, то питон переходит к else 
+    print("change your value")
+
+#if-elif-else
+
+price=25
+price1=40
+age=int(input())
+if age<=4:
+    print ("free entrance")
+elif age>4 and age<18:
+    print("pay",price)
+else:
+    print("pay",price1)
+
+#combos with elif
+
+age=12 
+if age>20:
+    print("1")
+elif age>15:
+    print("2")
+elif age>10:
+    print("3")
+
+#extra tasks
+
+color="yellow" #Чтобы изменить исход, меняйте значение здесь
+if color=="green":
+    print("hey pal, you got 5 points\n")
+else:
+    print("Yo, you've just got 10 points!\n")
+
+if color=="green":
+    print("strike with the 5 points!")
+elif color.title()=="Yellow":
+    print("MMM, 10 points")
+elif color=="red":
+    print("you've got now 15 points, hell yeah")
+else:
+    print("thats loss")
+
+age=int(input())
+
+if age<2:
+    print("baby")
+elif age>=2 and age<4:
+    print("Kinda child")
+elif age>=4 and age <13:
+    print("Teenager")
+elif age >=13 and age<20:
+    print("MMMM, AMATEUR")
+elif age >=20 and age<65:
+    print("an adult")
+else:
+    print("You live in russia, you should be dead right now")
+
+
+...
+
 
 
 
