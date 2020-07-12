@@ -418,9 +418,78 @@ else:
     print("You live in russia, you should be dead right now")
 
 
+#Using if with lists
+
+requested_top=["mushrooms","green pepper","Chili peppers","onions"]
+for request in requested_top:
+    print (request, "Some adds")
+print ("Your pizza is done")
+for request in requested_top:
+    if request!="green pepper":
+        print("Making your pizza...")
+    else:
+        print ("Oh shit i am sorry, your pizza will have a lack of a pack with green peppers")
+
+requested_topp=[] # список пуст, поэтому if не будет выполняться (ибо он смотрит, есть ли что-нибудь в списке)
+if requested_topp:
+    for request in requested_topp:
+        print("mmm, nice ingredient, m'am", request)
+    print ("Well, your pizza is ready to be consumed!\n")
+else:
+    print("Strange, but your pizza is plain. You sure you want that one ?\n")
+
+#Multiple lists
+
+available_topping=["Mushrooms","Ketchup","Onions","lasagna"]
+requested_topp=["Bikmakbetov","mushrooms","onions"]
+for request in requested_topp:
+    if request.title() in available_topping:
+        print (f"Adding some {request}")
+    else:
+        print ("sorry, we dont have", request)
+
+#Additional tasks
+##1 
+users=["Jake","Robert","Falcon","admin"]
+if users:
+    for user in users:
+        if user.title()=="Admin":
+            print("welcome home, king")
+        else:
+            print (f"Hey, {user}")
+
+##2
+users=[]
+if users:
+    print("hello world")
+else:
+    print("No users :(")
+
+##3
+us1=["Jake","Harold","Mick","Angie","Barnie"]
+us2=["holt","Kolt","mick","jake"]
+for user in us2:
+    if user.title() in us1 or user.lower() in us1 or user.upper() in us1:
+        print (f"Sorry ,but {user} is already taken by the other person")
+    else:
+        print("Proceeding...")
+
+##4
+ls1=[1,2,3]
+ls2=[1,2,3,4,5,6,7,8,9]
+for i in ls2:
+    if i in ls1:
+        if i==ls1[0]:
+            print (f"{i}st")
+        elif i==ls1[1]:
+            print (f"{i}nd")
+        else:
+            print(f"{i}rd")
+    else:
+        print (f"{i}th")
+
+
 ...
-
-
 
 
 
