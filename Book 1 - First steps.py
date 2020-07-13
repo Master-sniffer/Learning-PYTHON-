@@ -489,7 +489,67 @@ for i in ls2:
         print (f"{i}th")
 
 
+#Alphabet
+
+alien_0={"colour" : "green" , "points" : 5} #Словарь состоит из Ключа и значения. Ключ это то, что стоит слева от ":" а значение это то, что стоит справа. Ключ - значение может быть бесконечное кол-во в словаре, так что пользуйтесь им, если есть возможность 
+print (alien_0["colour"]) #Чтобы обратиться к значению в ключе, надо прописать его ключ, что мы и сделали сейчас
+print (alien_0["points"]) #Тут мы прописали ключ от "очков" и увидели значение 5
+
+new_points=alien_0["points"]
+print ("You've just earned", new_points,"points")
+
+#Adding new pairs in the Alphabet
+
+alien_0["x_position"] = 0
+alien_0["y_position"] = 25
+print (alien_0)
+
+#Making an empty alphabet
+
+alien_0={}
+alien_0["Colour"]="Blue"
+alien_0["points"]=10
+print (alien_0)
+
+#Change the variable in the alphabet
+
+alien_0 = {"colour": "green"}
+print (alien_0["colour"])
+alien_0["colour"]= "Yellow" #Таким простым способом, мы изменили у ключа colour значение с green на Yellow
+print (alien_0["colour"])
+
+alien_0={"x_position" : 0,"y_position": 25,"speed": "medium"}
+print (f"Position of the alien is {alien_0['x_position']} ")
+print ("An alien is moving rightwards")
+print ("Counting the size of the move to get that piece of shit")
+if alien_0["speed"]=="slow":
+    x_increment=1
+elif alien_0["speed"]=="medium":
+    x_increment=2
+else:
+    print("He is so fast, my god")
+    x_increment=3
+alien_0["x_position"]=alien_0["x_position"]+x_increment
+print (alien_0["x_position"])
+
+#Deleting key-variable
+
+alien_0={"colour":"green","points":20}
+print (alien_0)
+del alien_0["points"]
+print (alien_0)
+
+#An alphabet with the same objects
+
+favourite_language={
+    "jen":"python",
+    "sarah":"c",
+    "edward":"ruby",
+    "phill":"python"
+}
+print (favourite_language)
+language=favourite_language["sarah"].title()
+print (favourite_language)
+print (language)
+
 ...
-
-
-
