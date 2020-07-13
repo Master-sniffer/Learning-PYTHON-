@@ -722,5 +722,5 @@ for i,k in sorted(cities.items()): #i - Moscow\USA\Afganistan . k - информ
 
 
 #WHILE
-ad
+
 
