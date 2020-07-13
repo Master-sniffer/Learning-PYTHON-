@@ -3,7 +3,7 @@
 #deleting and inserting different stuff in list
 
 baba = ["mama","papa","babu"]
-message = f"my first anal was with\n\t{baba[1].title()}" # f перед ковычками дает нам возможность писать переменные в str формате, но только в спец скобочках {}
+message = f"my first kiss was with\n\t{baba[1].title()}" # f перед ковычками дает нам возможность писать переменные в str формате, но только в спец скобочках {}
 print (message)
 baba.insert (1,"jui")
 print (baba)
@@ -721,4 +721,5 @@ for i,k in sorted(cities.items()): #i - Moscow\USA\Afganistan . k - информ
         print (f"Here is stat about this country {j.title()} - {k[j]} ")#Именно поэтому мы и используем словарь k 
 
 
-#...           
+#WHILE
+
