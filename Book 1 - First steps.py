@@ -552,4 +552,63 @@ language=favourite_language["sarah"].title()
 print (favourite_language)
 print (language)
 
+#GET
+
+alien_0={'colour':"green","speed":"slow"}
+point=alien_0.get("points","No point assigned")
+print (point)
+print (alien_0.get("Point"))
+
+#More tasks to do!
+##1
+person={"First name": "David", "Second name":"Bowie","City":"Lodnon","Year": "1962"}
+for i in person:
+    print (person[i])
+
+##2
+person={"Andrew": "1", "Hopki" : "5", "Jorge" : "21", "Lara" : 69, "Lony" : 999, "Donki" : "baba", "Karla" : 999}
+for i in person:
+    print (i, person[i])
+
+#Brute through the Dictionary
+
+for key,value in person.items(): #Метод items нужен для вызова связки key - value. В key будут идти значения из ключа , а в value из значения ( key , value могут быть переименованны, как захотите)
+    print (key)
+    print (value,"\n")
+
+#Brute all keys in the Dictionary 
+
+for i in person.keys(): #метод keys используется для присваивания i (или любой другой вашей переменной) значение ключа 
+    print (i)
+
+friends=["Donki","Andrew"]
+for i in friends:
+    if i in person:
+        print (i,"ain't here and his favourite", person[i].title())
+    else:
+        print (i,"Is here ")
+
+
+print ("\nJust making some space...\n")
+#Brute keys in special queue
+
+for name in sorted(person.keys()):
+    print (name)
+
+#Brute all values in the dictionary
+
+for i in person.values(): #Метод value работает также, как и keys, только вместо ключей, он выводит значения
+    print (i)
+
+print ("\nJust making some space...\n")
+
+
+for i in set(person.values()):
+    print (i)
+
+words={"Love" : "Chemistry", "Health" : "Lack of something", "Will": "Something why we still live"}
+words["Bank"]="Robery"
+for i,k in sorted(words.items()):
+    print (f"I've got {i.title()} and {k.upper()}")
+
 ...
