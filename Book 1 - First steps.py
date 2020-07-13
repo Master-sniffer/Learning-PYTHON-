@@ -611,4 +611,114 @@ words["Bank"]="Robery"
 for i,k in sorted(words.items()):
     print (f"I've got {i.title()} and {k.upper()}")
 
-...
+#Lists of dictionnaires
+
+alien_0={"colour" : "green", "points" : 5}
+alien_1={"colour" : "yellow", "points" : 10}
+alien_2={"colour" : "red", "points" : 15}
+aliens=[alien_0,alien_1,alien_2]
+for alien in aliens:
+    print (alien)
+
+print("\nJust making some space...\n")
+
+aliens=[]
+for alien in range (30):
+    alien={"colour":"green","points":5}
+    aliens.append(alien)
+print (aliens[5:10])
+print (len(aliens))
+
+print("\nJust making some space...\n")
+
+for alien in aliens[2:5:2]:
+    if alien["colour"]=="green":
+        alien["colour"]="Yellow"
+        alien["speed"]="Medium"
+        alien["points"]=10
+
+
+for alien in aliens[0:10]:
+    if alien["colour"]=="green":
+        alien["colour"]="Yellow"
+        alien["speed"]="Medium"
+        alien["points"]=10
+    elif alien["colour"]=="Yellow":
+        alien["colour"]="Red"
+        alien["speed"]="High"
+        alien["points"]=15
+print (aliens[0:10])
+
+#lists in dictionnaires
+
+pizza={"Wheat": "Natural", "Sauce":"mayonnaise", "toppings" : ["onions","garlic","potato"]}
+for i,k in pizza.items():
+    if type(k)==str:
+        print (f"Adding {i} ")
+    else:
+        for j in k:
+            print (f"And your favourite toppings {j} are coming")
+
+#Dictionary in the Dictionary 
+
+users={
+    "aeinstein":{
+        "first":"Albert",
+        "last":"einstein",
+        "city":"princetion"
+    },
+    "marie":{
+        "first":"Mary",
+        "last":"Poppins",
+        "city":"London"
+    },
+}
+for user,name in users.items():
+    print (user.title())
+    print (f"\tfull name {name['first']} {name['last']}")
+    print (f"\tcity {name['city'].upper()}")
+
+#Additional tasks
+#1
+person_0={"Name":"David","Surname":"Bowie","City":"London"}
+person_1={"Name":"Norman","Surname":"Reedus","City":"USA"}
+person_2={"Name":"Evgeni","Surname":"Grinko","City":"Moscow"}
+person=[person_0,person_1,person_2]
+for per in person:
+    for i,k in per.items():
+        print (i.upper(),k)
+    print("\n")
+
+#2
+places={"Evgeni":["Moscow","Austria","Germany"], "Dan":["Denmark","Italy"]}
+for i,k in places.items():
+    print(i.title(),"wants to visit")
+    for j in k:
+        print ("\t",j)
+
+#3
+cities={"Moscow":{
+    "population":"1000000",
+    "jobs":"Available",
+    "nature":"Dead"
+    },
+    "Afganistan":
+    {
+        "population":"-1",
+        "jobs":"soldiers",
+        "nature":"Alive AF"
+    },
+    "USA":
+    {
+        "population":"1000000000000",
+        "jobs":"OILY JOBS ONLY",
+        "nature":"Kinda alive"
+    }
+}
+for i,k in sorted(cities.items()): #i - Moscow\USA\Afganistan . k - информация которая хранится в словарях (значение)
+    print (i.upper())
+    for j in k: #j у нас выступает в качестве ключа в самом словаре (population,jobs,nature)
+        print (f"Here is stat about this country {j.title()} - {k[j]} ")#Именно поэтому мы и используем словарь k 
+
+
+#...           
