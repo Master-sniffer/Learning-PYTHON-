@@ -743,3 +743,54 @@ print ("\nMaking some space\n")
 age=input("How old are you?\nVersion N2 ")
 age=int(age) #Если мы ввели число, то в этом случае мы переводим его из str в int (из букв в цифры)
 print (age>18) 
+           
+# calculating residue by using % operator
+
+print (4%3) #4-3=1 (остаток 1)
+print (5%3) # 5 - 3 = 2 ( вычисляем остаток)
+print (6/3) # 6 -3 -3 (идет простое деление на 2)
+
+x=int(input("Введите число, которое вы хотите проверить на четность\n")) #ввели число (поставив int перед вводом, чтобы не пришлось расписывать это действие в 2 строках)
+if x%2==0: #проверили, делится ли число, которое мы ввели на 2 без остатка 
+    print ("Четное")
+else:
+    print ("Нечет")
+
+#Extra tasks
+#1
+x=input("Your favourite car\n")
+print (f"I like your {x}")
+
+#2
+x=int(input("Введите сколько столов вам нужно\n"))
+if x>8:
+    print ("Надо будет подождать")
+else:
+    print ("Ждите, скоро все будет готово")
+
+#3
+x=int(input("Введите число, которое вы хотите проверить на кратность 10\n"))
+if x%10==0:
+    print ("Оно кратно 10")
+else:
+    print ("Некратно")
+
+#Cycles with While
+
+number=1
+while number <=5:
+    print (number)
+    number+=1
+
+#users chooses when to stop the programm
+
+words="\tTell me anything you want and i will repeat it to u"
+words+="\t\notherwise ,if you type 'quit' i will stop myself "
+message=""
+while message !="quit":
+    message=str(input("Enter your words\t"))
+    if message !="quit":
+        print (message)
+
+...
+
