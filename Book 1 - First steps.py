@@ -722,5 +722,24 @@ for i,k in sorted(cities.items()): #i - Moscow\USA\Afganistan . k - информ
 
 
 #WHILE
+#input
 
-...
+message=input("Tell me something sweet: ")# внутри input можно вписать все, что хочешь и пользователь это увидит, когда будет вводить значения
+print ("nice",message,"\n")
+
+promp="hey"
+promp+="\tnice coding skills\n" #Можно таким образом соединить 2 сообщения в одно
+message=input(promp) #а здесь , вместо текста, можно вывести наше сообщение, которые мы до этого писали
+print ("AE", message)
+
+#using int in input
+
+age=input("How old are you? ") #даже вводя число, питон все равно видит его, как str (буквенно значение)
+print (age)
+print (type(age))
+
+print ("\nMaking some space\n")
+
+age=input("How old are you?\nVersion N2 ")
+age=int(age) #Если мы ввели число, то в этом случае мы переводим его из str в int (из букв в цифры)
+print (age>18) 
