@@ -792,5 +792,80 @@ while message !="quit":
     if message !="quit":
         print (message)
 
+#flags
+
+flag=True
+while flag: #Весь while работает по принципу -> пока правда - делаю. В данном случае flag мы изначально указали , как правда (True), поэтому цикл и выполняется
+    x=str(input("Введите сообщение и я вам его напишу\nЕсли захотите завершить программу, напишите 'quit' "))
+    if x!="quit": #спрашиваем питон, чему равен x , если все что-угодно, кроме quit, то тогда мы продолжаем программу
+        print (x)
+    else:
+        flag=False #в данном случае наш flag стал равен False  - ложь и поэтому while заканчивает свою программу
+
+#break in while
+
+message="Введите слово и я его повторю"
+message+="\n\tВ противном случае, введите 'quit' и программа остановится "
+
+while True :
+    mes=input(message)
+    if mes=="quit":
+        break #break останавливает while (даже если тот находился в бесконечной рекурсии). ВНИМАНИЕ break хоть и полезен, но он влечет за собой большее время выполнения программы
+    else:
+        print (mes.title())
+
+#continue in while
+
+number=0
+while number <=10:
+    if number%2==0:
+        number+=1
+        continue #continue продолжает код ( без прерываний)
+    else:
+        print (number)
+        number+=1
+
+#Avoiding infinite cycles 
+
+x=1
+while x<=5:
+    print (x) # в этом случае , будет бесконечный вывод единиц. Чтобы ,в таком случае, завершить программу , потребуется нажать или cntrl+c (Win) или command+c(IOS\APPLE)
+    
+#Extra tasks
+#1
+
+message="Вводите топпинги, которые вы хотите добавить в пиццу"
+message+="\nЕсли захотите завершить заказ топпингов - напишите 'quit'\n"
+flag=True
+while flag:
+    x=input(message)
+    if x!='quit':
+        print (f"добавляем {x} в вашу пиццу\n")
+    else :
+        flag=False
+
+#2
+
+while True:
+    x=int(input('Введите ваш возраст\n'))
+    if x<3:
+        print ("Поздравляем, ваш билет бесплатный\n")
+    elif x>=3 and x<12:
+        print ("Стоимость билета 10 руб\n")
+    else:
+        print ("Стоимость билета 15 руб\n")
+    break
+
+#3
+
+flag=True 
+while True and flag:
+    x=input("Введите топпинг для пиццы. Если захотите завершить программа - напишите quit ")
+    if x!='quit':
+        print (f"добавляем {x}")
+    else:
+        flag=False
+        break
+
 ...
 
