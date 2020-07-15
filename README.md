@@ -1,5 +1,5 @@
 # Learning-PYTHON-
-Here I will publish some materials about stuff I learn by myself or from books
+Here I will publish some materials about stuff I learn by myself or from the books
 
 Structure of my code ( and themes ) looks like this :
 
