@@ -867,5 +867,69 @@ while True and flag:
         flag=False
         break
 
+#Using while with lists and dictionaries
+#Moving elements between lists
+
+uncomfirmed_users=["lara","colin","dave","Gorge","kate"]
+confirmed_users=[]
+while uncomfirmed_users:
+    user=uncomfirmed_users.pop()
+    print (f"varification is coming for {user.upper()} ")
+    confirmed_users.append(user)
+print (confirmed_users)
+print ("an old list", uncomfirmed_users)
+
+#delete all elements from this list with the stated variable
+
+pets=["cats","dogs","penguin","parrot","elephant","Cats"]
+while "cats" in pets or "Cats" in pets: #Пока одно значение в списке или другое значене в списке -> выполнять действие
+    if "cats" in pets:
+        pets.remove("cats")
+    else:
+        pets.remove("Cats")
+print (pets)
+
+#Filling the dictionary with user's data (using while)
+
+responses = {}
+active=True
+while active:
+    name=str(input("Please enter your name\n"))
+    respons=input("Which mountain have ever wished to climb on\n")
+    responses[name]=respons
+
+    repeat = input("Would you like to continue the process ? (type 'no', to stop)\n")
+    if repeat=="no":
+        active=False
+for i,k in responses.items():
+    print (f"\n{i} really would like to climb {k}\n")
+
+#Extra tasks
+#1 and 2
+sandwich_orders=["pastrami","ham and cheese","pastrami","pastrami","Tuna","pastrami","beaver sandwhich","pastrami","Kadgit's sandwhcih"]
+finished_sandwiches=[]
+while sandwich_orders:
+    if "pastrami" in sandwich_orders:
+        while "pastrami" in sandwich_orders:
+            sandwich_orders.remove("pastrami")
+    finished_sandwiches.append(sandwich_orders.pop())
+for i in finished_sandwiches:
+    print (f"we've done this sandwhich {i}")
+
+#3
+
+respons={}
+while True:
+    x=input("Hello, please enter your name\n")
+    y=input(f"thanks {x}, now please enter a place where you want to chill out\n")
+    respons[x]=y
+    x=input("lets continue. If you want to stop, please enter '-' or 'no'\n")
+    if x=="no" or x=="-":
+        break
+
+for i,k in respons.items():
+    print (f"\n{i} wants to go to {k}")
+
+
 ...
 
