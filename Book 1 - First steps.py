@@ -1202,3 +1202,5 @@ def mad_pizza(size,*toppings): #если вы заранее знаете , чт
 
 mad_pizza(69,"mushrooms")
 mad_pizza(420,"mushrooms","green peppers","extra pepper","onions") 
+
+...
