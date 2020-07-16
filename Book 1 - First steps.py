@@ -998,5 +998,207 @@ my_pet("willie") #тут не пишем 2 значение, потому что
 my_pet("Gary","cat") #тут мы пишем, потому что у нас кошка
 my_pet ("larry") # тут мы опять не пишем, потому что у нас собака
 
-...
+#Extra tasks
+#1
+def make_shirt (size=0,text="No print"):
+    print (f"The size of the T-shirt is {size} and the text on it will be - {text}")
 
+make_shirt(40,"hi")
+make_shirt(10,69)
+make_shirt(10)
+
+#2
+
+def describe_city (town="LA",country="the USA"):
+    print (f"{town} is in {country} !")
+
+describe_city("Moscow","Russia")
+describe_city()
+
+#returning an object from the function
+
+def form_name (first_name=None,last_name=None):
+    full_name=f"{first_name} {last_name}"
+    return (full_name.title()) #return тут работает, как способ, чтобы передать переменную из функции в переменную в основном коде (в данном случае это x)
+
+x=form_name("jack","nickolson") #Чтобы return сработал, как надо, требуется , чтобы переменная обозначала вызов функции (как здесь). return возвращает, что нам надо из функции в переменную x, которую мы потом и используем 
+print (x)
+
+#optional arguments
+
+def formatted_name (first_name=None,last_name=None, middle_name=""): #необязательные аргументы нужны для того, чтобы в некоторых случая мы могли просто опустить некоторы данные ( как в нашем случае). Делается это точно также, как и при присваивании значения по умолчанию, только тут вместо текста стоит просто пространство (попробуйте сами, это рил просто)
+    full_name=f"{first_name} {middle_name} {last_name}"
+    return full_name.title()
+
+homie=formatted_name(first_name="John",last_name="lee",middle_name="Hooker")
+print (homie)
+homie=formatted_name("John","Mordovich")
+print(homie)
+
+#returning of the dictionary 
+
+def build_person(first_name=None,last_name=None, age=None):
+    person={"first":first_name.title(),"second":last_name.lower()}
+    if age:
+        person['age']=age
+    return (person)
+
+guy=build_person("jack","NICOLSON", age=69)
+for i,k in guy.items():
+    print (i,k)
+
+#using functions in while
+
+def frr_name (first_name=None,second_name=None):
+    full_name=f"{first_name} {second_name}"
+    print (f"Hello {full_name}")
+    return full_name.title()
+
+while True:
+    print ("Please tell me ur name m8\n")
+    x=input("Name: ")
+    y=input("Aaaand your surname: ")
+    name=frr_name(x,y)
+    print (name)
+    x=input("if you want to stop, please type 'no'\n")
+    if x=="no":
+        break
+
+#Extra tasks
+#1
+world={}
+def city_country(city,country,world):
+    world[country]=city
+    return world
+
+for i in range(3):
+    x=input("Enter your country: ")
+    y=input("Enter your city: ")
+    city_country(y,x,world)
+print (world)
+
+#2
+
+def make_album(name,producer,album,nub=None):
+    alb={}
+    alb["name: "]=name
+    alb["producer: "]=producer
+    alb["Album's name: "]=album
+    if nub:
+        alb["number of tracks: "]=nub
+    return (alb)
+
+first_album=make_album("David Bowie","David Bowie","Blackstar",9)
+second_album=make_album("Corey Taylor","Stone sour","death")
+print (first_album)
+print (second_album)
+
+#transporting list
+
+def greet_users(names):
+    for i in names:
+        msg=f"Hello {i}"
+        print (msg)
+
+users=["hannag","Keil","Jake","Bro"]
+greet_users(users)
+
+#change list in the function
+
+unprinted=["phone","Xbox","Playstation","PC"]
+printed=[]
+while unprinted:
+    current=unprinted.pop()
+    print (f"current design {current}")
+    printed.append(current)
+
+for i in printed:
+    print (i)
+
+"""OR WE CAN DO THIS WAY"""
+
+def print_models(unprinted,completed):
+    while unprinted:
+        current=unprinted.pop()
+        print (f"{current} is in progress")
+        completed.append(current)
+
+def show_models(completed):
+    for i in completed:
+        print (i)
+
+
+unprinted=["phone","Xbox","Playstation","PC"]
+completed=[]
+print_models(unprinted,completed)
+show_models(completed)
+
+#restriction of changing list in function
+
+def print_models(unprinted,completed):
+    while unprinted:
+        current=unprinted.pop()
+        print (f"{current} is in progress")
+        completed.append(current)
+
+def show_models(completed):
+    for i in completed:
+        print (i)
+
+
+unprinted=["phone","Xbox","Playstation","PC"]
+completed=['hi']
+print_models(unprinted[:],completed)
+show_models(completed)
+print ("showing the copied list")
+show_models(unprinted)
+
+#Extra tasks
+#1
+mes=["hi","thank you","you welcome"]
+show_models(mes)
+
+#2
+
+def send_message(sending,sent):
+    while sending:
+        msg=sending.pop()
+        print (msg)
+        sent.append(msg)
+
+mes=["hi","thank you","you welcome"]
+sent=[]
+send_message(mes,sent)
+print ("messages that didnt get to the point")
+show_models(mes)
+print ("Messages which reached the point")
+show_models(sent)
+send_message(mes[:],sent) 
+print ("messages that didnt get to the point_1")
+show_models(mes)
+print ("Messages which reached the point_1")
+show_models(sent)
+
+#transfering custom variables
+
+def make_pizza(*toppings): # * в данном случае создает кортеж в который можно запихнуть скок хош значений
+    print (toppings)
+
+def made_pizza(*toppings): #теперь наша функция выводит не весь кортеж разом , а все элементы один за другим
+    for i in toppings:
+        print (i)
+
+make_pizza('pep')
+make_pizza("mushrooms","green peppers","extra cheese")
+made_pizza('pep')
+made_pizza("mushrooms","green peppers","extra cheese")
+
+#positional arguments with custom sets of aruments (damn that sounds hard)
+
+def mad_pizza(size,*toppings): #если вы заранее знаете , что у вас будет много разной инфы , которую можно запихнуть куда-угодно, то после определения нужных вам параметров, используйте *переменная. Чтобы лучше понять - смотрите код
+    print (size) #И да, лучше использовать определенное имя переменной *args  - вот так, чтобы все точно понимали, что в эту переменную вы будете пихать много значений и не только
+    for i in toppings:
+        print ("-",i)
+
+mad_pizza(69,"mushrooms")
+mad_pizza(420,"mushrooms","green peppers","extra pepper","onions") 
