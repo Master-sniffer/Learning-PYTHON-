@@ -1280,7 +1280,25 @@ por.make_pizza(21,"calculate","Karamba")
 #import all the stuff
 
 from ports import * #* в данном случае обозначает импортировать из этого файла ВСЁ. Хоть эта функция довольно-таки крута, но она может повлечь за собой очень негативные последствия (к примеру: в основном коде есть уже функция с похожим названием. Такой импорт повлечет за собой замену функции в основном коде на ту, которая импортировалась)
-make_pizza(70000,21212310,"few cucumbers")
+make_pizza(70000,21212310,"a few cucumbers")
 make_pizza(1010201201,"KArak","Karamba")
 
-...
+#Extra tasks
+#1
+
+#Line 11 (imports.py)
+from ports import *
+
+unprinted=["phone","Xbox","Playstation","PC"]
+completed=[]
+print_models(unprinted,completed)
+show_models(completed)
+
+#2
+
+import ports
+from ports import print_models
+from ports import print_models as pm
+import ports as PR
+from ports import *
+
