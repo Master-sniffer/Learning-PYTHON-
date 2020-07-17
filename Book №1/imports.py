@@ -18,3 +18,7 @@ def print_models(unprinted,completed):
 def show_models(completed):
     for i in completed:
         print (i)
+
+
+
+##
