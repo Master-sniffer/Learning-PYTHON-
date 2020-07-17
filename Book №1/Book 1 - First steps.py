@@ -1203,4 +1203,84 @@ def mad_pizza(size,*toppings): #если вы заранее знаете , чт
 mad_pizza(69,"mushrooms")
 mad_pizza(420,"mushrooms","green peppers","extra pepper","onions") 
 
+#using custom number of arguments 
+
+def build (first,last,**user_info): #** звездочки создают уже не кортеж, а словарь,в который можно добавлять бесконечное кол-во ключ-значений, что может быть очень полезно при написании парсера или прочих других массивов и баз данных
+    user_info['first_name']=first
+    user_info['last name']=last
+    return (user_info)
+
+user_profile=build("albert","einstein",location='princerton',field="physics")
+print (user_profile)
+
+#extra tasks
+#1
+def sandwhich (type_of_bread,mains,type_of_cheese,*extras):
+    print (f"Oki-doki, your type of bread will be {type_of_bread} and ur main ingridients will be {mains}. Type of cheese is {type_of_cheese} and your extras: ")
+    for i in extras:
+        print (i)
+    print ("\n")
+
+sandwhich("wheat","Cucumbers and meat","Funky one", "onions", "mushrooms")
+sandwhich("wheat","Cucumbers and meat","Funky one", "onions")
+sandwhich("wheat","Cucumbers and meat","Funky one", "onions","pepper souce", "mushrooms","extra milk")
+
+#2
+
+def build_task (first,last,**user):
+    user['first_name']=first.title()
+    user['last name']=last.title()
+    return (user)
+uno=build_task("mark","kronbergs",job="programmer",children="None",games="WOW")
+des=build_task("Dan","parsovich",meaning="There is no meaning of my life",love="there is no love",addictive_to="gaming",mental_issues="got them")
+print (uno)
+print (des)
+
+#3
+
+def automobile(maker,name_of_the_model,**extra_info):
+    extra_info["maker"]=maker.title()
+    extra_info["Name of the model"]=name_of_the_model.title()
+    return (extra_info)
+
+x=automobile("x5","subaru",colour="blue",amount=5,quality="Good")
+y=automobile("is","whore",you="your",mam="mama")
+print (x)
+print (y)
+
+#storing functions in modules
+#importing the whole module
+#Импортирование ! Для чего же оно нужно и как все работает ? У вас есть функции и вы не хотите засорять код ? Тогда ответ прост ! Создайте какой-нибудь файл.py в том же каталоге(папке), что и ваш основной файл и спокойно пишите imoprt название вашего файла
+
+#Line 4 (imports file)
+import ports
+
+ports.make_pizza(16,"pepperoni") #После того, как вы сделали импорт файла , используйте название файла.название функции и пишите код так, будто бы функция сейчас находится в вашем основном коде !
+ports.make_pizza(69,420,"few cucumbers")
+
+#imoprt chosen functions
+#если не хотите импортировать ВЕСЬ , то можно заюзать метод, который будет описан ниже
+
+from ports import make_pizza #после применения этого порта, вы можете спокойно использовать функции, которые находятся в нем
+make_pizza(69,420,"few cucumbers")
+make_pizza(20,"calculate","Karamba")
+
+#making a pseudonym for a function
+
+from ports import make_pizza as mp #Из файла ports мы импортируем функции make_pizza под именем mp(название основной функции не меняется)
+mp(6,42,"few cucumbers ?")
+mp(20,"calculate 1111","Karamba")
+
+#making a pseudonym for the module 
+
+import ports as por
+por.make_pizza(70,20,"few cucumbers")
+por.make_pizza(21,"calculate","Karamba")
+
+#import all the stuff
+
+from ports import * #* в данном случае обозначает импортировать из этого файла ВСЁ. Хоть эта функция довольно-таки крута, но она может повлечь за собой очень негативные последствия (к примеру: в основном коде есть уже функция с похожим названием. Такой импорт повлечет за собой замену функции в основном коде на ту, которая импортировалась)
+make_pizza(70000,21212310,"few cucumbers")
+make_pizza(1010201201,"KArak","Karamba")
+
 ...
