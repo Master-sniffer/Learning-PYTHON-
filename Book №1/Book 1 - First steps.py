@@ -1302,3 +1302,228 @@ from ports import print_models as pm
 import ports as PR
 from ports import *
 
+
+#CLASSES 
+#КЛАССЫ 
+#Классы позволяют делать много разных вещей, к примеру , возьмем МОБов (или НПС) из видеоигр. Рассматривать мы будем Minecraft и житилей деревни. Как известно, в деревне есть жители (считай, это общий класс). У каждого жителя есть свои задачи и назначения, к примеру , есть простой житель, который гуляет по городу (это уже объект (или же функция def )). Получается, есть продавец, есть фермер и тд, и у каждого из них есть своя роль, но так как у многих жителей есть повторяющиеся роли, мы просто берем и юзаем функцию, чтобы назначить жителю роль. В итоге, если все максимально упростить, класс - это деревня (или же список со всеми ролями), а объекты - это роли, которые могут повторяться и которые можно изменять ( если залезть в сам класс) 
+
+class dog(): # Определяем новый класс (если создаем новый класс, то в скобках ничего не пишем)
+
+    def __init__(self, name, age): # метод __init__ (и прочие другие , но о них потом) уникален. Когда он находятся в классе, то при каждом вызове экземпляра (функции), автоматом выполняется этот экземпляр 
+        #Инициализация атрибутов name и age 
+        self.name=name # self нам , в данном случае, нужен для того, чтобы переменная была доступна во всем классе (в других функциях вы можете заметить, что там мы это уже не прописываем, потому что self дает нам возможность это не делать )
+        self.age=age
+    
+    def sit (self): #self - что же это ? во-первых, метод self, всегда должен стоять на первом месте, когда мы пишем функцию (сейчас вы видите это в коде) и self нужен, чтобы питон кидал в него ссылку на экземпляр ака доступ к атрибутам и методам класса
+        print (f"{self.name} cел ")
+    
+    def roll_over (self): #Короче говоря, всякий раз , когда будете юзать класс и функцию в нем , не забывайте писать в самой функции ( в списках аргументов) self на первом месте
+        print (f"{self.age} вот это возраст ! Удивительно, как он может вообще перекатываться")
+
+my_dog=dog('willie',6) #чтобы использовать класс, мы сначала должны приказать питону создать экземпляр с кличкой willie и возрастом 6. Уже во время обработки этой строчки, вызывается метод __init__
+print(f"My dog's name is {my_dog.name}")
+print (f"My dog is {my_dog.age} years old")
+
+#"talking with atributes"
+
+print (my_dog.name) # Этот тип записи называется "точечная запись" и такая запись поможет нам взять значения атрибутов из класса на последний момент
+
+#using method
+
+my_dog.sit()
+my_dog.roll_over()
+
+#making a few specimen
+
+my_dog=dog("Naggets",5)
+your_dog=dog("Bangladesh", 11)
+
+print (f"{my_dog.name} can't do a lot as {your_dog.name} ")
+print (f"funny, but my dog is {my_dog.age} years old and yours is {your_dog.age} old")
+
+#Extra tasks
+#1
+
+class Restaurant():
+
+    def __init__ (self,name,cuisine_type):
+        self.name=name
+        self.cuisine_type=cuisine_type
+    
+    def desctibe (self):
+        print (self.name)
+        print (self.cuisine_type)
+    
+    def open_restaurant(self):
+        print ("Restaurant is open now")
+    
+restaurant=Restaurant("Uzbechkina","Uzbekistan food")
+print (restaurant.name)
+print (restaurant.cuisine_type)
+restaurant.desctibe()
+restaurant.open_restaurant()
+
+#2
+
+restaurant1=Restaurant("Kalmik","Kazakh's famous food")
+restaurant2=Restaurant("Arab tut bil","Arabic food")
+restaurant1.desctibe()
+restaurant1.open_restaurant()
+
+restaurant2.desctibe()
+restaurant2.open_restaurant()
+
+#3
+
+class User:
+
+    def __init__(self):
+        print("\nhello , admin\n")
+
+    def first_name(self,name):
+        self.name=name
+    
+    def last_name(self,l_name):
+        self.l_name=l_name
+    
+    def info (self,*args):
+        self.args=args
+    
+    def describe_user(self):
+        print (f"Hello {self.name} {self.l_name} i know so much about you, for example: ")
+        for i in self.args:
+            print(i)
+    
+
+    
+user=User()
+user.first_name("Arkovich")
+user.last_name("Mordovich")
+user.info("Loves gaming","fan of night clubs","Cigarettes addictive")
+user.describe_user()
+
+#working with classes and speicmen
+
+class Car():
+    def __init__(self,make,model,year):
+        self.make=make
+        self.model=model
+        self.year=year
+        self.odometr= 0 #giving atributes by the default
+    
+    def desryption (self):
+        long_name=f"{self.year} {self.make} {self.model}"
+        return long_name.title()
+    
+    def read_metr(self):
+        print (f"This car has {self.odometr} on it")
+    
+    def update_odom(self,mile):
+        if mile >self.odometr:
+            self.odometr=mile
+        else:
+            print ("You can't roll back the odometr")
+    
+    def increasement(self,miles):
+        self.odometr+=miles
+
+
+my_car=Car('audi','a4',2019)
+print (my_car.desryption())
+my_car.read_metr()
+
+#changing atributes in class 
+#1 method
+
+my_car.odometr=23
+my_car.read_metr()
+
+#2 method
+
+my_car.update_odom(20)
+my_car.read_metr()
+my_car.update_odom(-1)
+my_car.read_metr()
+
+#3 method
+
+my_used=Car('subaru','outbreak',2015)
+print (my_used.desryption())
+
+my_used.update_odom(23_500)
+my_used.read_metr()
+
+my_used.increasement(1000)
+my_used.read_metr()
+
+#extra Tasks
+#1
+
+class Restaurant_1():
+
+    def __init__ (self,name,cuisine_type):
+        self.name=name
+        self.cuisine_type=cuisine_type
+        self.number_served=0
+    
+    def desctibe (self):
+        print (self.name)
+        print (self.cuisine_type)
+        print(self.number_served, "people served")
+    
+    def open_restaurant(self):
+        print ("Restaurant is open now")
+    
+    def update_people(self,num):
+        if num>0:
+            self.number_served+=num
+        else:
+            print ("It is illegal !")
+    def set_peope(self,num):
+        self.number_served=num
+
+rest=Restaurant_1("ching-chong","chinese food")
+rest.set_peope(4)
+rest.desctibe()
+rest.update_people(-1)
+rest.update_people(10)
+rest.desctibe()
+
+#2
+
+class User_1:
+
+    def __init__(self,num):
+        self.num=num
+        print("\nhello , admin\n")
+
+    def first_name(self,name):
+        self.name=name
+    
+    def last_name(self,l_name):
+        self.l_name=l_name
+    
+    def info (self,*args):
+        self.args=args
+    
+    def describe_user(self):
+        print (f"Hello {self.name} {self.l_name} i know so much about you, for example: ")
+        for i in self.args:
+            print(i)
+        print ("Number of your attempts is", self.num)
+    
+    def login_increase(self,num):
+        if self.num>num:
+            print ("this is forbidden")
+        else:
+            self.num=num
+        
+us=User_1(0)
+us.first_name("Leo")
+us.last_name("Caprio")
+us.info("Loves football","filming is his passion")
+us.describe_user()
+us.login_increase(1)
+us.describe_user()
+
+
