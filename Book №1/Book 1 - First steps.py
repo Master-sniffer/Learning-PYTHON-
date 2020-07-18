@@ -1526,4 +1526,60 @@ us.describe_user()
 us.login_increase(1)
 us.describe_user()
 
+#inheritance
+#Method __init__ for the class inheritance
+
+class Car():
+    def __init__(self,make,model,year):
+        self.make=make
+        self.model=model
+        self.year=year
+        self.odometr= 0 #giving atributes by the default
+    
+    def desryption (self):
+        long_name=f"{self.year} {self.make} {self.model}"
+        return long_name.title()
+    
+    def read_metr(self):
+        print (f"This car has {self.odometr} on it")
+    
+    def update_odom(self,mile):
+        if mile >self.odometr:
+            self.odometr=mile
+        else:
+            print ("You can't roll back the odometr")
+    
+    def increasement(self,miles):
+        self.odometr+=miles
+    
+    def fill_gas_tank(self,nub):
+        self.odometr+=nub
+
+class Electric_car(Car): 
+    #сейчас мы создаем потомка основного класса. Потомок является классом-потомком родителя, что значит, что он обладает теми же свойстами, что и родитель, только у него есть дополнения. К примеру, возьмем машину (класс - родитель) и электромашину (класс-потомок) и дизельную машину (еще один потомок). У всех этим машин есть что-то общее - 4 колеса , стекла , руль и тд, но чем-то они отличаются и именно для этого и создаются потомки, чтобы не было лишней путаницы и проблем в классе родителе. Так, в потомке электромашин мы указали топливо - электричество , а в другом потомке - топило дизель
+
+    def __init__(self,make,model,year):
+        super().__init__(make,model,year)# супер позволяте вызвать метод род класса. Она приказывает метод init класса Car 
+        self.battery=75
+    
+    def describe_bat(self):
+        print (f"This car's got {self.battery} KWH left")
+    
+    def fill_gas_tank(self,nub):
+        print ("This type of car doesn't need it !")
+
+
+my_tesla=Electric_car('tesla','models s','2019')
+print (my_tesla.desryption())
+my_tesla.fill_gas_tank(5)
+
+#giving atributes and methods of parent class
+my_tesla.describe_bat() 
+
+#changing methods of the parent class
+    # def fill_gas_tank(self): Этот метод добавляется в класс Elcetrocar и нужен он для того, чтобы не было таких проблем , как !. Предположим кто-то решил вызвать метод заправки топливом для машины (в классе Car) и тут все нормально и проблем нет, но если кто-то возьмет класс электрокар и попробует заполнить его бак, то это может вызвать конфуз для чего мы прописали метод ( С ТЕМ ЖЕ ИМЕНЕМ, что и в родителе ) в классе-потомке Электромобиль
+    #     print ("This type of car doesn't need it !") 
+
+#example as an atribute
+
 ...
