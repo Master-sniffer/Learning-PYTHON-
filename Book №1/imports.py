@@ -75,3 +75,57 @@ class Electric_car(Car):
         print ("This type of car doesn't need it !")
 
 
+##1806
+class Restaurant():
+
+    def __init__ (self,name,cuisine_type):
+        self.name=name
+        self.cuisine_type=cuisine_type
+        self.flavours=["Vanilla", "mango", "raspberry", "chocolate"]
+    
+    def ice_cream_stand (self):
+        print ("\nKinds of ice-cream: ")
+        for i in self.flavours:
+            print (i)
+    
+    def desctibe (self):
+        print (self.name)
+        print (self.cuisine_type)
+    
+    def open_restaurant(self):
+        print ("Restaurant is open now")
+
+
+##1813
+class User:
+
+    def __init__(self):
+        print("\nhello , admin\n")
+
+    def first_name(self,name=None):
+        self.name=name
+        return (self.name)
+    
+    def last_name(self,l_name=None):
+        self.l_name=l_name
+        return l_name
+    
+    def info (self,*args):
+        self.args=args
+    
+    def describe_user(self):
+        print (f"Hello {self.name} {self.l_name} i know so much about you, for example: ")
+        for i in self.args:
+            print(i)
+
+class Privileges():
+    def __init__(self,privileges="Can add users, can deleate users, can ban userss" ):
+        self.privileges=privileges
+    
+    def show_privileges (self):
+        print (self.privileges)
+
+class Admin(User):
+
+    def __init__(self):
+        self.admin=Privileges()
