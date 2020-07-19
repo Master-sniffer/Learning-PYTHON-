@@ -1867,4 +1867,95 @@ while  jez!=win:
     nub+=1
 print (nub-1)
 
+#FILES AND EXCEPTIONS
+#reading from the file
+
+with open('text.txt') as file_object: #Сегодня мы будем рассматривать открытие файлов. Начнем с распаковки простого txt файла, как file_object (или другая иная переменная)
+    contents=file_object.read() #в переменную контентс мы пихаем все, что было в файле (с помощью метода переменная.read())
+print (contents) #После выполнения всех действий с файлом, его надо закрыть, но это не требуется, так как мы прописываем with, что как бы автоматом закрывает файл после всех действий с ним
+print (contents.rstrip())# r.strip удаляет все лишние пустые строки в конце
+
+#reading line by line
+
+filename="text.txt"
+with open (filename) as file_object:
+    for line in file_object:
+        print (line.rstrip())
+
+#making a list of lines from the the file
+
+filename="text.txt"
+with open (filename) as file_object:
+    lines=file_object.readlines() #readlines читает каждую строку (НЕ ПУТАТЬ С readline)
+for line in lines:
+    print (line.rstrip())
+
+#Working with the context of file
+
+filename="text.txt"
+with open (filename) as file_object:
+    lines=file_object.readlines() #readlines читает каждую строку (НЕ ПУТАТЬ С readline)
+
+pi_str=" "
+for line in lines:
+    pi_str+=line.strip()
+
+print (pi_str)
+print (len(pi_str))
+
+#Big files: million numbers
+
+filename="text.txt"
+with open (filename) as file_object:
+    lines=file_object.readlines() 
+pi_str=" "
+for line in lines:
+    pi_str+=line.strip()
+print (f"{pi_str[:52]}")
+print (len(pi_str))
+
+#Checking Birthday 
+
+filename="text.txt"
+with open (filename) as file_object:
+    lines=file_object.readlines() 
+pi_str=" "
+for line in lines:
+    pi_str+=line.strip()
+
+birthday=input("Enter your birthday date in the form month day year (without spaces) : ")
+if birthday in pi_str:
+    print ("Your birthday is in this number")
+else:
+    print ("your birthday doesn't appear in the first million of pi numbers")
+
+#Extra tasks
+#1
+
+with open ("text.txt") as fil:
+    for line in fil:
+        print (line)
+
+with open ("text.txt") as fil:
+    print ("sec method ")
+    x=fil.read()
+    print (x)
+
+with open ("text.txt") as fil:
+    print ("third method")
+    lines=fil.readlines()
+print (lines)
+
+#2
+
+message="I like dog"
+message=message.replace('dog',"cat")
+print (message)
+
+with open ("text.txt") as fil:
+    for line in fil:
+        if "python" in line:
+            line=line.replace('python','C')
+        print (line)
+
 ...
