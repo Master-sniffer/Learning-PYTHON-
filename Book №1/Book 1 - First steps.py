@@ -1582,4 +1582,199 @@ my_tesla.describe_bat()
 
 #example as an atribute
 
-...
+class Car():
+    def __init__(self,make,model,year):
+        self.make=make
+        self.model=model
+        self.year=year
+        self.odometr= 0 #giving atributes by the default
+    
+    def desryption (self):
+        long_name=f"{self.year} {self.make} {self.model}"
+        return long_name.title()
+    
+    def read_metr(self):
+        print (f"This car has {self.odometr} on it")
+    
+    def update_odom(self,mile):
+        if mile >self.odometr:
+            self.odometr=mile
+        else:
+            print ("You can't roll back the odometr")
+    
+    def increasement(self,miles):
+        self.odometr+=miles
+    
+    def fill_gas_tank(self,nub):
+        self.odometr+=nub
+
+class Battery():
+    def __init__(self,battery=75):
+        self.battery=battery
+    
+    def describe_battery(self):
+        print ("That's how much juice left - ",self.battery)
+    
+    def get_range(self):
+        if self.battery==75:
+            range=260
+        elif self.battery==100:
+            range=315
+        print (f"This car can go this far with this fuel {range}")
+    
+    def upgrade_Battery(self):
+        if self.battery!=100:
+            self.battery=100
+
+class Electric_car(Car): 
+
+    def __init__(self,make,model,year):
+        super().__init__(make,model,year)        
+        self.battery=Battery()#Здесь изменили 
+    
+    def fill_gas_tank(self,nub):
+        print ("This type of car doesn't need it !")
+
+my_tesla=Electric_car('tesla','models s','2019')
+my_tesla.battery.describe_battery() #Что же тут происходит ? Тут можно элементарно запутаться, поэтому будем двигаться аккуратно . Сначала мы сделали переменную my_tesla с фишечками род класса ( и его подкласса), после этого мы взяли атрибут battery (типа self.batter это как наша переменная. Вызов похож, как если бы мы создавали переменную my_tesla) и взяв этот атрибут мы сказали, какую функцию мы хотим выполнить и всё !
+my_tesla.battery.get_range() 
+
+#Extra tasks
+#1
+
+class Restaurant():
+
+    def __init__ (self,name,cuisine_type):
+        self.name=name
+        self.cuisine_type=cuisine_type
+        self.flavours=["Vanilla", "mango", "raspberry", "chocolate"]
+    
+    def ice_cream_stand (self):
+        print ("\nKinds of ice-cream: ")
+        for i in self.flavours:
+            print (i)
+    
+    def desctibe (self):
+        print (self.name)
+        print (self.cuisine_type)
+    
+    def open_restaurant(self):
+        print ("Restaurant is open now")
+    
+restaurant=Restaurant("Uzbechkina","Uzbekistan food")
+print (restaurant.name)
+print (restaurant.cuisine_type)
+restaurant.desctibe()
+restaurant.ice_cream_stand()
+restaurant.open_restaurant()
+
+#2
+
+class User:
+
+    def __init__(self):
+        print("\nhello , admin\n")
+
+    def first_name(self,name=None):
+        self.name=name
+        return (self.name)
+    
+    def last_name(self,l_name=None):
+        self.l_name=l_name
+        return l_name
+    
+    def info (self,*args):
+        self.args=args
+    
+    def describe_user(self):
+        print (f"Hello {self.name} {self.l_name} i know so much about you, for example: ")
+        for i in self.args:
+            print(i)
+
+class Privileges():
+    def __init__(self,privileges="Can add users, can deleate users, can ban userss" ):
+        self.privileges=privileges
+    
+    def show_privileges (self):
+        print (self.privileges)
+
+class Admin(User):
+
+    def __init__(self):
+        self.admin=Privileges()
+    # def privileges (self, add="Can add users",forbidden="can deleate users" ,ban="can ban users"):
+    #     self.forbidden=forbidden
+    #     self.add=add
+    #     self.ban=ban
+    
+    # def show_privileges (self):
+    #     first_name=super().first_name("Kruger")
+    #     last_name=super().last_name("shonz")
+    #     print ("Hello", first_name,last_name)
+    #     print (self.add, self.forbidden, self.ban)
+
+    
+user=User()
+user.first_name("Arkovich")
+user.last_name("Mordovich")
+user.info("Loves gaming","fan of night clubs","Cigarettes addictive")
+user.describe_user()
+# admin=Admin()
+# admin.first_name("Genry")
+# admin.last_name("Kubets")
+# admin.privileges()
+# admin.show_privileges()
+admin=Admin()
+admin.admin.show_privileges()
+
+#3
+
+my_tesla=Electric_car('tesla','models s','2019')
+my_tesla.battery.describe_battery()
+my_tesla.battery.get_range() 
+my_tesla.battery.upgrade_Battery()
+my_tesla.battery.describe_battery()
+my_tesla.battery.get_range()
+
+#Importing one class
+
+#24(imports)
+from ports import Car
+
+my_new_car=Car("Audi","A4",2018)
+
+print (my_new_car.desryption())
+
+my_new_car.odometr=23
+my_new_car.read_metr()
+
+#storing few classes in one module
+
+from ports import Electric_car
+
+tesla=Electric_car("tesla","a4",2019)
+tesla.battery.describe_battery()
+tesla.battery.get_range()
+tesla.battery.upgrade_Battery()
+tesla.battery.describe_battery()
+tesla.battery.get_range()
+
+#importing few classes from the module
+
+from ports import Car, Electric_car
+
+beetle=Car("Kaz","froggger",2020)
+print (beetle.desryption())
+
+bee=Electric_car("Tesla","a4",2222)
+print (bee.desryption())
+
+#importing the whole module
+
+import ports
+
+my_bee=ports.Car("Adui","202",1987)
+print (my_bee.desryption())
+
+bib=ports.Electric_car("Tesla","truck",1999)
+print (bib.desryption())
