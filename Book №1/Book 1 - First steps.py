@@ -1815,4 +1815,56 @@ from ports import *
 admin=Admin()
 admin.admin.show_privileges()
 
+#Standard 
+
+from random import randint
+x=randint(1,6)
+print (x)
+
+from random import choice
+players=["Alex","Miranda","Josh","Loie","Loice","Andrew"]
+fir=choice(players)
+print (fir)
+
+#extra tasks
+
+class Die():
+    def __init__(self):
+        self.sides=6
+    
+    def roll_die(self,nub=None):
+        if nub==None:
+            nub=self.sides
+
+        from random import randint
+        x=randint(1,nub)
+        print (x)
+
+for i in range(10):
+    rub=Die()
+    rub.roll_die()
+
+#2
+
+kort=[1,2,3,4,"a",5,"b",6,7,"d","k","r","F",10,100]
+jez=[]
+from random import choice
+for i in range (4):
+    x=choice(kort)
+    jez.append(x)
+for i in jez:
+    print (i)
+
+#3
+
+nub=0
+win=[4,6,2,1]
+jez=[]
+while  jez!=win:
+    for i in range (4):
+        x=choice(kort)
+        jez.append(x)
+    nub+=1
+print (nub-1)
+
 ...
