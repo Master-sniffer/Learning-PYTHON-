@@ -1783,5 +1783,22 @@ print (bib.desryption())
 
 from ports import * #не рекомендуется использовать этот метод, так как могут быть вызваны конфликты с именами в файле
 
-...
+#importing another way 
 
+from ports import Car
+from portable import Electric_car
+
+car=Car("Audi","A28",2090)
+print (car.desryption())
+
+t_car=Electric_car("Dudi",20,"kariz")
+print (t_car.desryption())
+
+#using pseudonyms
+
+from ports import Electric_car as EC
+
+my_tesla=EC("Twka","AE4",2020)
+print (my_tesla.desryption())
+
+...
