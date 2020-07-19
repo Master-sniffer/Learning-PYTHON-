@@ -47,5 +47,31 @@ class Car():
     
     def fill_gas_tank(self,nub):
         self.odometr+=nub
+class Battery():
+    def __init__(self,battery=75):
+        self.battery=battery
+    
+    def describe_battery(self):
+        print ("That's how much juice left - ",self.battery)
+    
+    def get_range(self):
+        if self.battery==75:
+            range=260
+        elif self.battery==100:
+            range=315
+        print (f"This car can go this far with this fuel {range}")
+    
+    def upgrade_Battery(self):
+        if self.battery!=100:
+            self.battery=100
+
+class Electric_car(Car): 
+
+    def __init__(self,make,model,year):
+        super().__init__(make,model,year)        
+        self.battery=Battery()#Здесь изменили 
+    
+    def fill_gas_tank(self,nub):
+        print ("This type of car doesn't need it !")
 
 
