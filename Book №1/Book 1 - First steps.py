@@ -1801,4 +1801,18 @@ from ports import Electric_car as EC
 my_tesla=EC("Twka","AE4",2020)
 print (my_tesla.desryption())
 
+#Extra tasks
+#1
+#78 (imoprts)
+from ports import Restaurant
+
+rest=Restaurant("kurkih","Asian food")
+rest.open_restaurant()
+
+#2
+#99 (imports)
+from ports import *
+admin=Admin()
+admin.admin.show_privileges()
+
 ...
