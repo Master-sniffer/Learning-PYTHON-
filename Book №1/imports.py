@@ -21,4 +21,31 @@ def show_models(completed):
 
 
 
-##
+##1741
+class Car():
+    def __init__(self,make,model,year):
+        self.make=make
+        self.model=model
+        self.year=year
+        self.odometr= 0 #giving atributes by the default
+    
+    def desryption (self):
+        long_name=f"{self.year} {self.make} {self.model}"
+        return long_name.title()
+    
+    def read_metr(self):
+        print (f"This car has {self.odometr} on it")
+    
+    def update_odom(self,mile):
+        if mile >self.odometr:
+            self.odometr=mile
+        else:
+            print ("You can't roll back the odometr")
+    
+    def increasement(self,miles):
+        self.odometr+=miles
+    
+    def fill_gas_tank(self,nub):
+        self.odometr+=nub
+
+
