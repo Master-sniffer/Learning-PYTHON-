@@ -1779,4 +1779,9 @@ print (my_bee.desryption())
 bib=ports.Electric_car("Tesla","truck",1999)
 print (bib.desryption())
 
+#importing the whole module
+
+from ports import * #не рекомендуется использовать этот метод, так как могут быть вызваны конфликты с именами в файле
+
 ...
+
