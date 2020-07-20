@@ -2146,4 +2146,77 @@ line='Row, row, rOw, rrr, ROW'
 x=line.lower().count('row')
 print (x)
 
+#Saving data by using json
+#json.dump() - Получает два аргумента - сохраняемые данные и объект файла
+#json.load() - читает список обратно в память
+
+import json
+
+numbers=[2,3,5,7,11,13]
+filename='numbers.json'
+with open (filename, 'w') as f:
+    json.dump(numbers,f)
+
+with open (filename) as f:
+    numbers=json.load(f)
+print (numbers)
+
+#saving and reading data made by user
+
+username=input("Please input your name : ")
+filename='numbers.json'
+with open (filename, 'w') as f:
+    json.dump(username, f)
+    print (f'We will remember u, {username}')
+
+"""Сейчас мы откроем файл и юзанем инфу из него """
+
+filename='numbers.json'
+with open (filename) as f:
+    username=json.load(f)
+    print (f'Welcome back, {username} !!!')
+
+filename="numbers.json"
+try:
+    with open (filename) as f:
+        username=json.load(f)
+except FileNotFoundError:
+    username=input("Enter your name: ")
+    with open (filename, 'w') as f:
+        json.dump(username,f)
+        print ('We will remember u')
+else:
+    print (f"welcome back {username}")
+
+# Refactoring
+
+import json
+
+def get_stored():
+    filename="numbers.json"
+    try:
+        with open (filename) as f:
+            username=json.load(f)
+    except FileNotFoundError:
+        return None
+    else:
+        return username
+
+def new_user():
+    username=input("Please input your name : ")
+    filename='numbers.json'
+    with open (filename, 'w') as f:
+        json.dump(username, f)
+    return username
+
+def greet_user():
+    username=get_stored()
+    if username:
+        print (f'Love and greet , da supa {username}')
+    else:
+        username=new_user()
+        print (f'We will remember u, {username}')
+
+greet_user()
+
 ...
