@@ -2039,4 +2039,111 @@ try:
 except FileNotFoundError:
     print (f"Sorry, but there is no {filename} in this directory")
 
+#Analysing the whole text
+
+filename="alice.txt"
+try:
+    with open (filename, encoding='utf-8') as f:
+        content=f.read()
+except FileNotFoundError:
+    print (f"Sorry, but there is no {filename} in this directory")
+else:
+    words=content.split()
+    num=len(words)
+    print (f"The file {filename} includes {num} number of words")
+
+#Working with a few files
+
+def count(filename):
+    try:
+        with open (filename, encoding='utf-8') as f:
+            content=f.read()
+    except FileNotFoundError:
+        print (f"Sorry, but there is no {filename} in this directory")
+    else:
+        words=content.split()
+        num=len(words)
+        print (f"The file {filename} includes {num} number of words")
+
+filename="alice.txt"
+count(filename)
+
+#Errors without notifications to the user
+
+def count_1(filename):
+    try:
+        with open (filename, encoding='utf-8') as f:
+            content=f.read()
+    except FileNotFoundError:
+        pass
+    else:
+        words=content.split()
+        num=len(words)
+        print (f"The file {filename} includes {num} number of words")
+
+filename="alice.txt"
+filen="Mob.txt"
+count_1(filename)
+count_1(filen)
+
+#Extra Tasks
+#1
+
+fir=input("The first number: ")
+sec=input("The second number: ")
+try:
+    x=(int(fir)) + (int(sec))
+except ValueError:
+    print ("You have words, but no numbers. Dont do it next time !")
+else:
+    print (x)
+
+#2
+
+while True:
+    fir=input("The first number: ")
+    sec=input("The second number: ")
+    try:
+        x=(int(fir)) + (int(sec))
+    except ValueError:
+        print ("You have words, but no numbers. Dont do it next time !")
+    else:
+        print (x)
+    
+    x=input("If you want to stop, just click enter ")
+    if x=="":
+        break
+
+#3
+
+try:
+    with open('alice.txt', encoding='utf-8') as g:
+        g=g.read()
+    with open ('text.txt', encoding='utf-8') as f:
+        f=f.read()
+except FileNotFoundError:
+    print ("some of the files is missing")
+else:
+    print (f)
+    print (g)
+
+#4
+
+try:
+    with open('alice.txt', encoding='utf-8') as g:
+        g=g.read()
+    with open ('text.txt', encoding='utf-8') as f:
+        f=f.read()
+except FileNotFoundError:
+    pass
+else:
+    print (f)
+    print (g)
+
+#5
+
+line='Row, row, rOw, rrr, ROW'
+x=line.lower().count('row')
+print (x)
+
 ...
