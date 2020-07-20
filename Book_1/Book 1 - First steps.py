@@ -1998,4 +1998,45 @@ while flag:
     else :
         flag=False
 
+#Exception Zero Division error
+
+print (5/0)
+
+#Using try-except
+
+try:
+    print (5/0)
+except ZeroDivisionError:
+    print ("You cant divide by zero")
+
+#using Exceptions to reduce the amount of the emergency situations
+
+print ("give me to numbers and i will divide them\n")
+print ("to finish, press enter without entering any text\n")
+
+while True:
+    first=input("Enter your first number: ")
+    if first=="":
+        print ("bye")
+        break
+    second=input("Enter your second number: ")
+    if second=="":
+        print ("bye")
+        break
+    try:
+        answ=int(first)/int(second)
+    except ZeroDivisionError:
+        print ("You can't divide by zero")
+    else:
+        print (answ)
+    
+#Analysing and excepting FileNotFound
+
+filename="alice.txt"
+try:
+    with open (filename, encoding='utf-8') as f:
+        content=f.read()
+except FileNotFoundError:
+    print (f"Sorry, but there is no {filename} in this directory")
+
 ...
