@@ -1958,4 +1958,44 @@ with open ("text.txt") as fil:
             line=line.replace('python','C')
         print (line)
 
+#write in the empty file
+#ВИДЫ ЗАПИСИ В ФАЙЛ -> 'r' - открыть файл в режиме чтения . 'w' - режим записи . 'a' - присоединение . 'r+' - чтение и запись в файл
+
+filen="program.txt"
+with open (filen, 'w') as fil:
+    fil.write("I love programming")
+    
+
+#many lines writing
+
+filen="program.txt"
+with open (filen, 'w') as fil:
+    fil.write("I love programming\n")
+    fil.write('And here is the new line\n') #ADDED THIS LINE
+
+#adding data to the file
+
+with open (filen,'a') as fil:
+    fil.write('I know that sounds strange,but still ')
+    fil.write('\nOh, hi mark')
+
+#Extra tasks
+#1
+
+x=str(input("Hello there, tell me ur name ! :"))
+with open ('text.txt', 'a') as fil:
+    fil.write(x)
+
+#2
+
+flag=True
+while flag:
+    x=str(input("Hello, please tell me ur name : "))
+    if x!='':
+        with open ('program.txt','a') as fil:
+            x+="\n"
+            fil.write(x)
+    else :
+        flag=False
+
 ...
