@@ -2219,4 +2219,71 @@ def greet_user():
 
 greet_user()
 
+#Extra tasks
+#1
+
+import json
+
+filename='numbers.json'
+x=int(input("Введите ваше любимое число: "))
+with open (filename, "w") as f:
+    json.dump(x,f)
+
+with open (filename) as f:
+    x=json.load(f)
+    print (f"Я знаю ваше любимое число, это - {x}")
+
+#2
+
+try:
+    with open (filename) as f:
+        x=json.load(f)
+    print (f"Я знаю ваше любимое число, это - {x}")
+except FileNotFoundError:
+    filename='numbers.json'
+    x=int(input("Введите ваше любимое число: "))
+    with open (filename, "w") as f:
+        json.dump(x,f)
+
+#Test scenario
+
+import unittest
+
+def get_format(first,last):
+    full=f'{first} {last}'
+    return full.title()
+
+class NamesTest(unittest.TestCase):
+
+    def test_first(self):
+        formated=get_format('janis','griffin')
+        self.assertEqual(formated, 'Janis Griffin')
+
+if __name__=='__main__':
+    unittest.main()
+
+#Test scenario
+
+import unittest
+
+def get_format(first,middle,last=''):
+    if last:
+        full=f'{first} {middle} {last}'
+    else:
+        full=f'{first} {middle}'
+    return full.title()
+
+class NamesTest(unittest.TestCase):
+
+    def test_first(self):
+        formated=get_format('janis','griffin')
+        self.assertEqual(formated, 'Janis Griffin')
+
+    def test_sec(self):
+        formate=get_format('wolfgang','mozart','amadeus')
+        self.assertEqual(formate,'Wolfgang Mozart Amadeus')
+
+if __name__=='__main__':
+    unittest.main()
+
 ...
