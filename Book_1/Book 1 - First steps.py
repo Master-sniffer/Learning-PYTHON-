@@ -2286,4 +2286,22 @@ class NamesTest(unittest.TestCase):
 if __name__=='__main__':
     unittest.main()
 
+#Extra tasks
+#1
+import unittest
+
+def country(city,capital):
+    fil=f"{city} {capital}"
+    return fil.title()
+
+class NamesTest(unittest.TestCase):
+    def test_first(self):
+        fr=country('moscow','russia')
+        self.assertEqual(fr,"Moscow Russia")
+
+
+
+if __name__=='__main__':
+    unittest.main()
+
 ...
