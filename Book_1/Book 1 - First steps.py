@@ -2299,7 +2299,27 @@ class NamesTest(unittest.TestCase):
         fr=country('moscow','russia')
         self.assertEqual(fr,"Moscow Russia")
 
+if __name__=='__main__':
+    unittest.main()
 
+#2
+import unittest
+
+def country(city,capital, population=None):
+    if population:
+        fil=f'{city} {capital} {population}'
+    else:
+        fil=f"{city} {capital}"
+    return fil.title()
+
+class NamesTest(unittest.TestCase):
+    def test_first(self):
+        fr=country('moscow','russia')
+        self.assertEqual(fr,"Moscow Russia")
+    
+    def test_two(self):
+        fr=country('new-York',"usa",'50000000')
+        self.assertEqual(fr,'New-York Usa 50000000')
 
 if __name__=='__main__':
     unittest.main()
