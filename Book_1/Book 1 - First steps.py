@@ -2383,4 +2383,79 @@ class TestAnon(unittest.TestCase):
 if __name__=='__main__':
     unittest.main()
 
+#class for testing
+
+import unittest
+
+class Anonym():
+    def __init__(self,question):
+        self.question=question
+        self.responses=[]
+    
+    def show_question(self):
+        print (self.question)
+    
+    def store_resp(self, new_resp):
+        self.responses.append(new_resp)
+    
+    def show_res(self):
+        print ("Survey total : ")
+        for i in self.responses:
+            print (f'- {i}')
+
+question="What is your first language ?"
+my_survey=Anonym(question)
+my_survey.show_question()
+print ("\t\t\t\t\tPress enter in an empty field to stop the program\n")
+while True:
+    x=input("So, what you think ? : ")
+    if x=='':
+        break
+    my_survey.store_resp(x)
+my_survey.show_res()
+
+class TestAnon(unittest.TestCase):
+    def test_store_inf(self):
+        question="What is your first language ?"
+        my_survey=Anonym(question)
+        my_survey.show_question()
+        my_survey.store_resp("English")
+        self.assertIn('English', my_survey.responses)
+
+    def test_store_three(self):
+        question="What is your first language ?"
+        my_survey=Anonym(question)
+        my_survey.show_question()
+        reps=["English","French","Spanish"]
+        for i in reps:
+            my_survey.store_resp(i)
+        for res in reps:
+            self.assertIn(res, my_survey.responses)
+
+if __name__=='__main__':
+    unittest.main()
+
+#method SetUp()
+
+class TestAnonist(unittest.TestCase):
+
+    def setUp(self):
+        question="What is your first language ?"
+        self.my_survey=Anonym(question)
+        self.responses=['English',"French","Spanish"]
+        
+
+    def test_store_inf(self):
+        self.my_survey.store_resp(self.responses[0])
+        self.assertIn(self.responses[0], self.my_survey.responses)
+
+    def test_store_three(self):
+        for response in self.responses:
+            self.my_survey.store_resp(response)
+        for response in self.responses:
+            self.assertIn(response, self.my_survey.responses)
+
+if __name__=='__main__':
+    unittest.main()
+
 ...
