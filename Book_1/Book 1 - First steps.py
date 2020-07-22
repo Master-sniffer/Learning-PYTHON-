@@ -2324,4 +2324,11 @@ class NamesTest(unittest.TestCase):
 if __name__=='__main__':
     unittest.main()
 
+# assertEqual(a,b) -> a==b
+# assertNotEqual (a,b) -> a!=b
+# assertTrue(x) -> x==True
+# assertFalse(x) -> x==False
+# assertIn(element , list) -> проверка , что элемент в списке
+# assertNotIn(element , list) -> проверка , что элемент НЕ в списке
+
 ...
