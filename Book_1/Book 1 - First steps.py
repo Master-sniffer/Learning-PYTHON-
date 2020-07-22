@@ -2458,4 +2458,36 @@ class TestAnonist(unittest.TestCase):
 if __name__=='__main__':
     unittest.main()
 
-...
+#Extra Task
+
+import unittest
+
+class Employee():
+    def __init__(self, name, lastname, salary):
+        self.name=name
+        self.lastname=lastname
+        self.salary=salary
+    
+    def give_raise(self, high=5000):
+        self.salary+=high
+        print (f"Now {self.name} {self.lastname} gets {self.salary} dollars per year ! ")
+    
+class TestEmp(unittest.TestCase):
+
+    def setUp(self):
+        self.emp=Employee("Richard","Gauss",50_000)
+        self.REE=55_000
+        self.rip=75_000
+    
+    def test_give_raise_default(self):
+        self.emp.give_raise()
+        self.assertEqual(self.REE, self.emp.salary)
+    
+    def test_custom (self):
+        self.emp.give_raise(25_000)
+        self.assertEqual(self.rip, self.emp.salary)
+
+if __name__=='__main__':
+    unittest.main()
+
+THE END OF THE PART 1 
