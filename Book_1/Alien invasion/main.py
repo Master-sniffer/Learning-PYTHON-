@@ -1,28 +1,38 @@
-import sys
-import pygame
+import pygame, sys
+#my folders
+from settings import Settings
+from ship import Ship
 
 
 class AlienInvasion:
     
     def __init__(self):
         """ИНИЦИАЛИЗАЦИЯ ИГРЫ"""
-        pygame.cdrom.init()
-
-        self.screen=pygame.display.set_mode((1200, 800))
+        pygame.init() #HERE IS EVERYTHING ALRIGHT
+        self.settings=Settings()
+        self.screen=pygame.display.set_mode((self.settings.screen_width, self.settings.screen_height))
         pygame.display.set_caption("ALIEN INVASION")
-        self.bg_color=(230,230,230)
+        
+        self.ship=Ship(self)
 
     def run_game(self):
         """ЗАПУСК ИГРЫ"""
 
         while True: #ОТСЛЕЖИВАНИЕ ДЕЙСТВИЙ С КЛАВЫ
-            for event in pygame.event.get():
-                if event.type==pygame.cdrom.quit():
-                    sys.exit()
-                
-            self.screen.fill(self.bg_color)
-            
-            pygame.display.flip()
+            self._check_events()
+            self._update_screen()
+
+    
+    def _update_screen(self):
+        self.screen.fill(self.settings.bg_colour)   
+        self.ship.blitme()         
+        pygame.display.flip()
+
+
+    def _check_events(self):
+        for event in pygame.event.get():
+            if event.type==pygame.QUIT:
+                sys.exit()
 
 if __name__=='__main__':
     ai=AlienInvasion()
