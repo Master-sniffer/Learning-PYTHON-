@@ -3,15 +3,15 @@ import pygame
 class Ship():
     def __init__(self,ai_game):
         self.screen=ai_game.screen
-        self.settings=ai_game.settings
-        self.screen_rect=ai_game.screen.get_rect()
+        self.settings=ai_game.settings #получили настройки, как экземпляр, чтобы возни было меньше (К настройкам мы обращаемся так -> переменная self.settings -> игра.settings -> получаем настройки (settings))
+        self.screen_rect=ai_game.screen.get_rect() #Узнали размер экрана 
 
         self.image=pygame.image.load('images/pngaaa.com-795642.bmp')
-        self.rect=self.image.get_rect()
+        self.rect=self.image.get_rect() #узнали размер картинки
 
-        self.rect.midbottom=self.screen_rect.midbottom
+        self.rect.midbottom=self.screen_rect.midbottom #закинули расположение  объектма на Середину дна
 
-        self.x=float(self.rect.x)
+        self.x=float(self.rect.x) #запихнули текущее расположение корабля в переменную
         self.y=float(self.rect.y)
 
         #moving is down here
@@ -20,7 +20,7 @@ class Ship():
         self.moving_up=False
         self.moving_down=False
     
-    def update(self):
+    def update(self): #обновление движения в зависимости от клавиши
         if self.moving_right and self.rect.right<=self.screen_rect.right:
             self.x+=self.settings.ship_speed
         elif self.moving_left and self.rect.left>=0:
@@ -30,7 +30,7 @@ class Ship():
         elif self.moving_down and self.rect.bottom<self.screen_rect.bottom:
             self.y+=self.settings.ship_speed
         
-        self.rect.x=self.x
+        self.rect.x=self.x #
         self.rect.y=self.y
     
     def blitme(self):
