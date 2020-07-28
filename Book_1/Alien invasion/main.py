@@ -123,7 +123,7 @@ class AlienInvasion:
         alien_width, alien_height=alien.rect.size
         alien.x=alien_width+alien_width+2* alien_width * alien_number 
         alien.rect.x=alien.x
-        alien.rect.y=alien_height=2*alien_height*row
+        alien.rect.y=2*alien_height*row
         self.aliens.add(alien)
 
     def _update_aliens(self):
