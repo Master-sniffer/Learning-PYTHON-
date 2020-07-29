@@ -1,8 +1,10 @@
 import pygame, sys
+from time import sleep
 #my folders
 from settings import Settings
 from ship import Ship
 from bullet import Bullet
+from game_stats import GameStats
 from alien import Alien
 #from character import Character
 
@@ -15,6 +17,7 @@ class AlienInvasion:
         pygame.init() #HERE IS EVERYTHING ALRIGHT
         self.settings=Settings()
         self.screen=pygame.display.set_mode((self.settings.screen_width, self.settings.screen_height))
+        self.screen_rect=self.screen.get_rect()
         # self.screen=pygame.display.set_mode((0,0), pygame.FULLSCREEN)
         # self.settings.screen_width=self.screen.get_rect().width
         # self.settings.screen_height=self.screen.get_rect().height
@@ -22,6 +25,7 @@ class AlienInvasion:
         
         self.ship=Ship(self)
         self.bullets=pygame.sprite.Group()
+        self.stats=GameStats(self)
         self.aliens=pygame.sprite.Group() #объявление группы пришельцев 
         #self.charecter=Character(self) # MB I WILL DO IT
 
@@ -94,8 +98,25 @@ class AlienInvasion:
         for bullet in self.bullets.copy():
             if bullet.rect.bottom<=0:
                 self.bullets.remove(bullet)
-
         #print (len(self.bullets))
+        self._check_bullet()
+
+    def _check_bullet(self):
+        collisions=pygame.sprite.groupcollide(self.bullets, self.aliens, False, True)
+        if not self.aliens:
+            self.bullets.empty()
+            self._create_fleet()
+
+    def _ship_hit(self):
+        self.stats.ships_left-=1
+
+        self.aliens.empty()
+        self.bullets.empty()
+
+        self._create_fleet()
+        self.ship.center_ship()
+
+        sleep(0.5)
 
     def _create_fleet(self): #Создание флота пришельцев 
         alien=Alien(self)
@@ -128,7 +149,18 @@ class AlienInvasion:
 
     def _update_aliens(self):
         self.aliens.update()
+        
+        if pygame.sprite.spritecollideany(self.ship, self.aliens):
+            self._ship_hit()
+
+        self._aliens_check_bottom()
         self._check_fleet()
+
+    def _aliens_check_bottom(self):
+        for alien in self.aliens.sprites():
+            if alien.rect.bottom>=self.screen_rect.bottom:
+                self._ship_hit()
+                break
     
     def _check_fleet(self):
         for alien in self.aliens.sprites():
@@ -140,6 +172,7 @@ class AlienInvasion:
         for alien in self.aliens.sprites():
             alien.rect.y += self.settings.fleet_drop_speed
         self.settings.fleet_direction *=-1
+    
 
 if __name__=='__main__':
     ai=AlienInvasion()
