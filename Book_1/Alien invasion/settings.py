@@ -3,7 +3,9 @@ class Settings():
         self.screen_width=1280
         self.screen_height=800
         self.bg_colour=(210,230,230)
+        #параметр корабля
         self.ship_speed=7.0
+        self.ship_limit=3
         #параметр пришельца
         self.alien_speed=0.5
         self.fleet_drop_speed=10
@@ -14,3 +16,4 @@ class Settings():
         self.bullet_height=15
         self.bullet_color=(50,50,20)
         self.bullet_allowed=5
+
