@@ -6,6 +6,7 @@ from ship import Ship
 from bullet import Bullet
 from game_stats import GameStats
 from alien import Alien
+from button import Button
 #from character import Character
 
 
@@ -30,6 +31,7 @@ class AlienInvasion:
         #self.charecter=Character(self) # MB I WILL DO IT
 
         self._create_fleet()#при первом вызыове 
+        self.play_button=Button(self,"LETS START")
 
     def run_game(self):
         """ЗАПУСК ИГРЫ"""
@@ -50,6 +52,8 @@ class AlienInvasion:
         for bullet in self.bullets.sprites():
             bullet.draw_bullet()
         self.aliens.draw(self.screen)#показывает пришельцев на self.screen (общий экран)
+        if not self.stats.game_active:
+            self.play_button.draw_button()
         pygame.display.flip() #обновление экрана 
 
 
@@ -62,6 +66,9 @@ class AlienInvasion:
                
             elif event.type==pygame.KEYUP:
                 self._check_keyUP(event)
+            elif event.type==pygame.MOUSEBUTTONDOWN:
+                mouse_pos=pygame.mouse.get_pos()
+                self._check_play_button(mouse_pos)
 
     
     def _check_keyDOWN(self, event): #проверка нажатой клавиши
@@ -89,6 +96,20 @@ class AlienInvasion:
         elif event.key==pygame.K_DOWN:
             self.ship.moving_down=False
     
+    def _check_play_button(self, mouse_pos):
+        button_clicked=self.play_button.rect.collidepoint(mouse_pos)
+        if button_clicked and not self.stats.game_active:
+            self.stats.reset_stats()
+            self.stats.game_active=True
+
+            self.aliens.empty()
+            self.bullets.empty()
+
+            self._create_fleet()
+            self.ship.center_ship()
+
+            pygame.mouse.set_visible(False)
+
     def _fire_bullet(self): #отвечает за запуск пули
         if len(self.bullets) < self.settings.bullet_allowed:
             new_bullet=Bullet(self)
@@ -123,6 +144,7 @@ class AlienInvasion:
             sleep(0.5)
         else:
             self.stats.game_active=False
+            pygame.mouse.set_visible(True)
 
     def _create_fleet(self): #Создание флота пришельцев 
         alien=Alien(self)
