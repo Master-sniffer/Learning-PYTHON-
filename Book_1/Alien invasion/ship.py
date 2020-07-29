@@ -6,7 +6,7 @@ class Ship():
         self.settings=ai_game.settings #получили настройки, как экземпляр, чтобы возни было меньше (К настройкам мы обращаемся так -> переменная self.settings -> игра.settings -> получаем настройки (settings))
         self.screen_rect=ai_game.screen.get_rect() #Узнали размер экрана 
 
-        self.image=pygame.image.load('images/pngaaa.com-795642.bmp')
+        self.image=pygame.image.load('images/4f3e72d669bedd4022000045.bmp')
         self.rect=self.image.get_rect() #узнали размер картинки
 
         self.rect.midbottom=self.screen_rect.midbottom #закинули расположение  объектма на Середину дна
@@ -35,3 +35,7 @@ class Ship():
     
     def blitme(self):
         self.screen.blit(self.image, self.rect)
+
+    def center_ship(self):
+        self.rect.midbottom=self.screen_rect.midbottom
+        self.x=float(self.rect.x)
