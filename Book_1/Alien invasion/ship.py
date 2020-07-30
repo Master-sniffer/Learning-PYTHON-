@@ -1,41 +1,62 @@
-import pygame
+import pygame.font
+from pygame.sprite import Group
+from ship import Ship
 
-class Ship():
-    def __init__(self,ai_game):
+class Scoreboard():
+    def __init__(self, ai_game):
+        self.ai_game=ai_game
         self.screen=ai_game.screen
-        self.settings=ai_game.settings #получили настройки, как экземпляр, чтобы возни было меньше (К настройкам мы обращаемся так -> переменная self.settings -> игра.settings -> получаем настройки (settings))
-        self.screen_rect=ai_game.screen.get_rect() #Узнали размер экрана 
+        self.screen_rect=self.screen.get_rect()
+        self.settings=ai_game.settings
+        self.stats=ai_game.stats
 
-        self.image=pygame.image.load('images/4f3e72d669bedd4022000045.bmp')
-        self.rect=self.image.get_rect() #узнали размер картинки
-
-        self.rect.midbottom=self.screen_rect.midbottom #закинули расположение  объектма на Середину дна
-
-        self.x=float(self.rect.x) #запихнули текущее расположение корабля в переменную
-        self.y=float(self.rect.y)
-
-        #moving is down here
-        self.moving_right=False
-        self.moving_left=False
-        self.moving_up=False
-        self.moving_down=False
+        self.text_color=(30,30,30)
+        self.font=pygame.font.SysFont(None, 48)
+        self.prep_score()
+        self.prep_high_score()
+        self.prep_level()
+        self.prep_ships()
     
-    def update(self): #обновление движения в зависимости от клавиши
-        if self.moving_right and self.rect.right<=self.screen_rect.right:
-            self.x+=self.settings.ship_speed
-        elif self.moving_left and self.rect.left>=0:
-            self.x-=self.settings.ship_speed
-        if self.moving_up and self.rect.top>0:
-            self.y-=self.settings.ship_speed
-        elif self.moving_down and self.rect.bottom<self.screen_rect.bottom:
-            self.y+=self.settings.ship_speed
-        
-        self.rect.x=self.x #
-        self.rect.y=self.y
-    
-    def blitme(self):
-        self.screen.blit(self.image, self.rect)
+    def prep_score(self):
+        rounded_score=round(self.stats.score, -1)
+        score_str="{:,}".format(rounded_score)
+        self.score_image=self.font.render(score_str, True, self.text_color, self.settings.bg_colour)
 
-    def center_ship(self):
-        self.rect.midbottom=self.screen_rect.midbottom
-        self.x=float(self.rect.x)
+        self.score_rect=self.score_image.get_rect()
+        self.score_rect.right=self.screen_rect.right - 20
+        self.score_rect.top=20
+    
+    def show_score(self):
+        self.screen.blit(self.score_image, self.score_rect)
+        self.screen.blit(self.high_score_image, self.high_score_rect)
+        self.screen.blit(self.level_image, self.level_rect)
+        self.ships.draw(self.screen)
+    
+    def prep_high_score(self):
+        high_score=round(self.stats.high_score, -1)
+        high_score_str="{:,}".format(high_score)
+        self.high_score_image=self.font.render(high_score_str, True, self.text_color, self.settings.bg_colour)
+
+        self.high_score_rect=self.high_score_image.get_rect()
+        self.high_score_rect.centerx=self.screen_rect.centerx
+        self.high_score_rect.top=self.score_rect.top
+    
+    def check_high_score(self):
+        if self.stats.score > self.stats.high_score:
+            self.stats.high_score=self.stats.score
+            self.prep_high_score()
+    
+    def prep_level(self):
+        level_str=str(self.stats.level)
+        self.level_image=self.font.render(level_str, True, self.text_color, self.settings.bg_colour)
+        self.level_rect=self.level_image.get_rect()
+        self.level_rect.right=self.screen_rect.right
+        self.level_rect.top=self.score_rect.bottom + 10
+    
+    def prep_ships(self):
+        self.ships=Group()
+        for ship_number in range (self.stats.ships_left):
+            ship=Ship(self.ai_game)
+            ship.rect.x=10+ship_number*ship.rect.width
+            ship.rect.y=10
+            self.ships.add(ship)
