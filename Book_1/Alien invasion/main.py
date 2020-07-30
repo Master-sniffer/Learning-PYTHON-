@@ -1,4 +1,4 @@
-import pygame, sys
+import pygame, sys, json
 from time import sleep
 #my folders
 from settings import Settings
@@ -25,6 +25,7 @@ class AlienInvasion:
         # self.settings.screen_height=self.screen.get_rect().height
         pygame.display.set_caption("ALIEN INVASION")
         
+
         self.ship=Ship(self)
         self.bullets=pygame.sprite.Group()
         self.stats=GameStats(self)
@@ -34,6 +35,8 @@ class AlienInvasion:
 
         self._create_fleet()#при первом вызыове 
         self.play_button=Button(self,"LETS START")
+
+        self.filename="saved_data.json"
 
     def run_game(self):
         """ЗАПУСК ИГРЫ"""
@@ -84,6 +87,10 @@ class AlienInvasion:
         elif event.key==pygame.K_DOWN:
             self.ship.moving_down=True
         elif event.key==pygame.K_ESCAPE: #стоп слово
+            some_score=self.stats.high_score
+            with open (self.filename, "w") as f:
+                print ("d")
+                json.dump(some_score, f)
             sys.exit()
         
         elif event.key==pygame.K_SPACE:
@@ -107,6 +114,7 @@ class AlienInvasion:
             self.stats.game_active=True
             self.sb.prep_score()
             self.sb.prep_level()
+            self.sb.prep_ships()
 
             self.aliens.empty()
             self.bullets.empty()
@@ -146,6 +154,7 @@ class AlienInvasion:
     def _ship_hit(self):
         if self.stats.ships_left>=0:
             self.stats.ships_left-=1
+            self.sb.prep_ships()
 
             self.aliens.empty()
             self.bullets.empty()
