@@ -1,6 +1,14 @@
+import json
 class GameStats():
     def __init__(self, ai_game):
-        self.high_score=0
+        filename="saved_data.json"
+        try:
+            with open (filename) as f:
+                self.high_score=json.load(f)
+        except:
+            with open (filename, "w") as f:
+                json.dump(0,f)
+        
         self.settings=ai_game.settings
         self.reset_stats()
 
