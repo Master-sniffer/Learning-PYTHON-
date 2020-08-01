@@ -8,7 +8,7 @@ class Settings():
         #параметр пришельца
         self.fleet_drop_speed=10
         #ПАРАМЕТР СНАРЯДА
-        self.bullet_width=3000
+        self.bullet_width=5  #Ширина пули
         self.bullet_height=15
         self.bullet_color=(50,50,20)
         self.bullet_allowed=5
