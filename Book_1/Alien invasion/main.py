@@ -181,14 +181,14 @@ class AlienInvasion:
                 self._create_alien_1(number,row+1)
 
     def _create_alien(self, alien_number,row): # создание пришельца 
-        alien=Alien(self)
-        alien_width, alien_height=alien.rect.size
+        alien=Alien(self) 
+        alien_width, alien_height=alien.rect.size #Сначала идет ширина потом длина пришельца
         alien.x=alien_width+2* alien_width * alien_number #определили расстояние между инепрешеленцами
-        alien.rect.x=alien.x
+        alien.rect.x=alien.x #Расположение пришельца 
         alien.rect.y=alien_height +2*alien_height*row
         self.aliens.add(alien) #добавление пришельца в "список пришельцев"
 
-    def _create_alien_1(self, alien_number, row):
+    def _create_alien_1(self, alien_number, row): 
         alien=Alien(self)
         alien_width, alien_height=alien.rect.size
         alien.x=alien_width+alien_width+2* alien_width * alien_number 
@@ -205,19 +205,19 @@ class AlienInvasion:
         self._aliens_check_bottom()
         self._check_fleet()
 
-    def _aliens_check_bottom(self):
+    def _aliens_check_bottom(self): #Проверка достиг ли пришелец дна 
         for alien in self.aliens.sprites():
             if alien.rect.bottom>=self.screen_rect.bottom:
                 self._ship_hit()
                 break
     
-    def _check_fleet(self):
+    def _check_fleet(self): #Проверка дошел ли пришелец до края
         for alien in self.aliens.sprites():
             if alien.check_edges():
                 self._change_direction()
                 break
     
-    def _change_direction(self):
+    def _change_direction(self): #Смена направления 
         for alien in self.aliens.sprites():
             alien.rect.y += self.settings.fleet_drop_speed
         self.settings.fleet_direction *=-1
