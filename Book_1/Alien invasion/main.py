@@ -107,8 +107,8 @@ class AlienInvasion:
             self.ship.moving_down=False
     
     def _check_play_button(self, mouse_pos):
-        button_clicked=self.play_button.rect.collidepoint(mouse_pos)
-        if button_clicked and not self.stats.game_active:
+        button_clicked=self.play_button.rect.collidepoint(mouse_pos) #проверка нажатия кнопки 
+        if button_clicked and not self.stats.game_active: #если кнопка нажата и игра не запущена начинается игра 
             self.settings.initialize_dynamic_settings()
             self.stats.reset_stats()
             self.stats.game_active=True
@@ -125,7 +125,7 @@ class AlienInvasion:
             pygame.mouse.set_visible(False) #Метод, чтобы мышка исчезла
 
     def _fire_bullet(self): #отвечает за запуск пули
-        if len(self.bullets) < self.settings.bullet_allowed:
+        if len(self.bullets) < self.settings.bullet_allowed: #Если длина меньше кол-во разрешенных пуль 
             new_bullet=Bullet(self)
             self.bullets.add(new_bullet)
     
@@ -151,18 +151,18 @@ class AlienInvasion:
             self.stats.level+=1
             self.sb.prep_level()
 
-    def _ship_hit(self):
-        if self.stats.ships_left>=0:
-            self.stats.ships_left-=1
+    def _ship_hit(self): #Проверка был ли удра корабля
+        if self.stats.ships_left>=0: #Если кол-во кораблей больше или равно нулю - продолжать действие 
+            self.stats.ships_left-=1 
             self.sb.prep_ships()
 
             self.aliens.empty()
             self.bullets.empty()
 
             self._create_fleet()
-            self.ship.center_ship()
+            self.ship.center_ship() 
 
-            sleep(0.5)
+            sleep(0.5) #Остановить игру на 0.5 сек
         else:
             self.stats.game_active=False
             pygame.mouse.set_visible(True)
