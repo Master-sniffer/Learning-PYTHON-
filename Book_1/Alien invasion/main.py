@@ -51,15 +51,15 @@ class AlienInvasion:
 
     
     def _update_screen(self): #отвечает за то, что вообще на экране творится
-        self.screen.fill(self.settings.bg_colour)   
-        self.ship.blitme()    
+        self.screen.fill(self.settings.bg_colour) #Заполнить экран определенным цветом
+        self.ship.blitme() # Использовать метод показа корабля 
         #self.charecter.blitme()  #MB I WILL DO IT  
         for bullet in self.bullets.sprites():
             bullet.draw_bullet()
         self.aliens.draw(self.screen)#показывает пришельцев на self.screen (общий экран)
         if not self.stats.game_active:
             self.play_button.draw_button()
-        self.sb.show_score()
+        self.sb.show_score() #Метод показа очков
         pygame.display.flip() #обновление экрана 
 
 
@@ -88,15 +88,15 @@ class AlienInvasion:
             self.ship.moving_down=True
         elif event.key==pygame.K_ESCAPE: #стоп слово
             some_score=self.stats.high_score
-            with open (self.filename, "w") as f:
-                print ("d")
-                json.dump(some_score, f)
+            with open (self.filename, "w") as f: #Открытие файла 
+                print ("d") #Лоигрование, что запись в файл идет
+                json.dump(some_score, f) #Сохранение результата
             sys.exit()
         
-        elif event.key==pygame.K_SPACE:
+        elif event.key==pygame.K_SPACE: #Вызов метода стрельбы пули
             self._fire_bullet()
     
-    def _check_keyUP(self, event): #проверка, какую клавишу отпустили  ( или отпущена)
+    def _check_keyUP(self, event): #проверка, какую клавишу отпустили  (или отпущена)
         if event.key==pygame.K_RIGHT:
             self.ship.moving_right=False
         elif event.key==pygame.K_LEFT:
@@ -122,7 +122,7 @@ class AlienInvasion:
             self._create_fleet()
             self.ship.center_ship()
 
-            pygame.mouse.set_visible(False)
+            pygame.mouse.set_visible(False) #Метод, чтобы мышка исчезла
 
     def _fire_bullet(self): #отвечает за запуск пули
         if len(self.bullets) < self.settings.bullet_allowed:
@@ -138,14 +138,14 @@ class AlienInvasion:
         self._check_bullet()
 
     def _check_bullet(self):
-        collisions=pygame.sprite.groupcollide(self.bullets, self.aliens, False, True)
-        if collisions:
+        collisions=pygame.sprite.groupcollide(self.bullets, self.aliens, False, True) #Проверка взаимодействия группы пули и группы пришельцев
+        if collisions: #Если есть коллизия
             for aliens in collisions.values():
                 self.stats.score+=self.settings.alien_score*len(aliens)
             self.sb.prep_score()
             self.sb.check_high_score()
-        if not self.aliens:
-            self.bullets.empty()
+        if not self.aliens: #Если группа пришельцев пустая
+            self.bullets.empty() 
             self._create_fleet()
             self.settings.increase_speed()
             self.stats.level+=1
