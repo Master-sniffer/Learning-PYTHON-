@@ -218,7 +218,7 @@ class AlienInvasion:
                 break
     
     def _change_direction(self): #Смена направления 
-        for alien in self.aliens.sprites():
+        for alien in self.aliens.sprites(): #меняем направление каждого пришельца с помощью группы спрайт
             alien.rect.y += self.settings.fleet_drop_speed
         self.settings.fleet_direction *=-1
     
