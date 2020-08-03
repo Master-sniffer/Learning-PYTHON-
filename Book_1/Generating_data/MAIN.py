@@ -38,4 +38,36 @@ ax.set_ylabel("Square of Value", fontsize=14)
 ax.tick_params(axis='both', labelsize=14)
 plt.show()
 
+#Stylish look of your diagram
+
+import matplotlib.pyplot as plt
+print (plt.style.available) # Выводит доступные стили
+
+plt.style.use('ggplot')
+input_values=[1,2,3,4,5] 
+squares=[1,4,9,16,25]
+fig, ax= plt.subplots()
+ax.plot(input_values ,squares, linewidth=3) 
+
+ax.set_title("Square numbers", fontsize=24) 
+ax.set_xlabel("Value", fontsize=14) 
+ax.set_ylabel("Square of Value", fontsize=14) 
+
+ax.tick_params(axis='both', labelsize=14)
+plt.show()
+
+#Marking spec dots and points on the diagram
+
+import matplotlib.pyplot as plt
+plt.style.use('ggplot')
+
+fig, ax= plt.subplots()
+ax.scatter(2,4, s=200) # scatter (x,y) - указываем на графике точку в этих коордах. s - задает размер точки
+ax.set_title("Square numbers", fontsize=24) 
+ax.set_xlabel("Value", fontsize=14) 
+ax.set_ylabel("Square of Value", fontsize=14) 
+
+ax.tick_params(axis='both', which="Major", labelsize=14)
+plt.show() 
+
 ...
