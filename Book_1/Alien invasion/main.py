@@ -18,11 +18,12 @@ class AlienInvasion:
         """ИНИЦИАЛИЗАЦИЯ ИГРЫ"""
         pygame.init() #HERE IS EVERYTHING ALRIGHT
         self.settings=Settings()
-        self.screen=pygame.display.set_mode((self.settings.screen_width, self.settings.screen_height))
+        self.screen=pygame.display.set_mode((self.settings.screen_width, self.settings.screen_height))  # 4
         self.screen_rect=self.screen.get_rect()
-        # self.screen=pygame.display.set_mode((0,0), pygame.FULLSCREEN)
-        # self.settings.screen_width=self.screen.get_rect().width
-        # self.settings.screen_height=self.screen.get_rect().height
+        # ЕС ХОТИТЕ СДЕЛАТЬ НА ФУЛ ЭКРАН - УБИРАЙТЕ # В 1 , 2 , 3 ПУНКТЕ И ПОСТАВЬТЕ # В 4 ПУНКТЕ
+        # self.screen=pygame.display.set_mode((0,0), pygame.FULLSCREEN)  # 1
+        # self.settings.screen_width=self.screen.get_rect().width        # 2
+        # self.settings.screen_height=self.screen.get_rect().height      # 3
         pygame.display.set_caption("ALIEN INVASION")
         
 
