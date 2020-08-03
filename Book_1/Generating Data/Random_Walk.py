@@ -35,7 +35,10 @@ while True:
   rw.fill_walk()
   plt.style.use("classic")
   fix,ax=plt.subplots()
-  ax.scatter(rw.x_values, rw.y_values, s=15)
+  points_numbers=range(rw.num_points)
+  ax.scatter(rw.x_values, rw.y_values, c=points_numbers, cmap=plt.cm.Reds, edgecolors='none', s=15)
+  ax.scatter(rw.x_values[-1], rw.y_values[-1], c="blue", edgecolors='None', s=100)
+  ax.scatter(rw.x_values[1], rw.y_values[1], c='green', edgecolors='None', s=100)
   plt.show()
 
   program=str(input("Keep running ? (y/n) ?"))
