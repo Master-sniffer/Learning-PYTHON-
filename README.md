@@ -19,6 +19,8 @@ Upgrading pip:
 1) MAC\LINUX:   pip install -U pip
 2) WINDOWS: python -m pip install -U pip
 
+
+
 Structure of my code ( and themes ) looks like this :
 
 I write code on the same theme and i make 1 empty line between different sub-themes
