@@ -9,7 +9,7 @@ Installing PYTHON:
 5) PROFIT !!!
 *try this extension out by making a new file with .py in the end (EXAMPLE.py) and printing Hello World: print ("Hello World") run this programm*
 
-Installing pip:
+Installing pip *SKIP THIS PIECE OF GUIDE IF YOU'VE INSTALLED PYTHON VERSION 3.6>*:
 1) https://pip.pypa.io/en/stable/installing/
 2) curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
 3) python get-pip.py *type this one in shell*
