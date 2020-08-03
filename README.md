@@ -12,7 +12,7 @@ Installing PYTHON:
 Installing pip:
 1) https://pip.pypa.io/en/stable/installing/
 2) curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-3) python get-pip.py
+3) python get-pip.py *type this one in shell*
 
 Upgrading pip:
 1) MAC\LINUX:   pip install -U pip
