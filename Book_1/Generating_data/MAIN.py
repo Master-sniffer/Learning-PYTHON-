@@ -70,4 +70,96 @@ ax.set_ylabel("Square of Value", fontsize=14)
 ax.tick_params(axis='both', which="Major", labelsize=14)
 plt.show() 
 
+#Showing a list of dots by using scatter
+
+import matplotlib.pyplot as plt
+x_values=[1,2,3,4,5]
+y_values=[1,4,9,16,25]
+
+plt.style.use('ggplot')
+fig, ax= plt.subplots()
+ax.scatter(x_values, y_values, s=100) # Scatter читает данные так - (1,1), (2,4), (3,9) и тд
+ax.set_title("Square numbers", fontsize=24) 
+ax.set_xlabel("Value", fontsize=14) 
+ax.set_ylabel("Square of Value", fontsize=14) 
+
+ax.tick_params(axis='both', which="Major", labelsize=14)
+plt.show() 
+
+#Automatic calculation of the flow of data
+
+import matplotlib.pyplot as plt
+
+x_values=list(range(1,1001))
+y_values=[x**2 for x in x_values]
+
+plt.style.use('ggplot')
+fig, ax= plt.subplots()
+ax.scatter(x_values, y_values, s=10)
+ax.set_title("Square numbers", fontsize=24) 
+ax.set_xlabel("Value", fontsize=14) 
+ax.set_ylabel("Square of Value", fontsize=14) 
+ax.tick_params(axis='both', which="Major", labelsize=14)
+
+ax.axis([0,1100,0,1100000]) #axis - нужен для того, чтобы задать ограничения по осям (сначала для X потом для Y) - (Xmin, Xmax, Ymin,Ymax)
+plt.show() 
+
+#Using custom colors
+
+ax.scatter(x_values, y_values, c='red' s=10)
+#OR
+ax.scatter(x_values, y_values,c=(0,0.8,0) s=10)
+
+#Colour map
+
+import matplotlib.pyplot as plt
+
+plt.style.use('ggplot')
+fig, ax= plt.subplots()
+x_values=list(range(1,1001))
+y_values=[x**2 for x in x_values]
+
+ax.scatter(x_values, y_values, c=y_values, cmap=plt.cm.Blues , s=10)
+ax.set_title("Square numbers", fontsize=24) 
+ax.set_xlabel("Value", fontsize=14) 
+ax.set_ylabel("Square of Value", fontsize=14) 
+ax.tick_params(axis='both', which="Major", labelsize=14)
+
+plt.show() 
+
+#Automatic save of the diagrams
+
+plt.savefig('squares_plot.png', bbox_inches='tight')# ВМЕСТО plt.show() 
+# Первый аргумент - название файла. Второй аргумент - надо ли убирать пустое пространство или нет, если вы не будете вписывать это в метод, то вы просто сохраните картинку
+
+#Extra Tasks
+#1
+import matplotlib.pyplot as plt
+
+plt.style.use('ggplot')
+fig, ax= plt.subplots()
+x_values=list(range(1,6))
+y_values=[x**2 for x in x_values]
+ax.scatter(x_values, y_values, c="red", s=100)
+ax.set_title("Square numbers", fontsize=24) 
+ax.set_xlabel("Value", fontsize=14) 
+ax.set_ylabel("Square of Value", fontsize=14) 
+ax.tick_params(axis='both', which="Major", labelsize=14)
+
+plt.show() 
+
+#2
+import matplotlib.pyplot as plt
+plt.style.use('ggplot')
+fig, ax= plt.subplots()
+x_values=list(range(1,5001))
+y_values=[x**2 for x in x_values]
+ax.scatter(x_values, y_values, c=x_values, cmap=plt.cm.Reds, s=10)
+ax.set_title("Square numbers", fontsize=24) 
+ax.set_xlabel("Value", fontsize=14) 
+ax.set_ylabel("Square of Value", fontsize=14) 
+ax.tick_params(axis='both', which="Major", labelsize=14)
+
+plt.show() 
+
 ...
