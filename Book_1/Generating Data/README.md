@@ -8,7 +8,7 @@ pip3 install matplotlib
 
 !!!*Основоной гайд будет находиться в MAIN.py*
 
-
+#
 
 Установка библиотеки Plotly
 
