@@ -11,4 +11,10 @@ class Die():
   def roll (self):
     return randint(1, self.num_sides) # тут мы получаем число от 1 до 6 (если мы по дефолту ничего не вписали)
 
+die=Die()
+results=[]
+for roll_num in range(1000):
+  result = die.roll()
+  results.append(result)
+
 ...
