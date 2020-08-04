@@ -7,7 +7,7 @@ pip install pygame
 ИЛИ
 
 pip3 install pygame
-
+#
 УСТАНОВКА ИГРЫ: 
 1) Качайте папку Alien invasion 
 2) Распакуйте 
