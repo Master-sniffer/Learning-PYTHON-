@@ -6,7 +6,6 @@ pip install matplotlib
 
 pip3 install matplotlib
 
-!!!*Основоной гайд будет находиться в MAIN.py*
 
 #
 
