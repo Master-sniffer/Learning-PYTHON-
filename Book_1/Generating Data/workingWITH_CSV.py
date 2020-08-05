@@ -1,6 +1,7 @@
 #Ща мы будем работать с excel файлами и сможем чего-нибудь анализировать
 
 import csv 
+from matplotlib import pyplot as plt
 
 filename='sitka_weather_07-2018_simple.csv' # Файл находится в Extra FIles в generating data
 with open (filename) as f:
@@ -14,4 +15,12 @@ with open (filename) as f:
     high=int(row[5])
     highs.append(high)
 
-print (highs)
+plt.style.use('seaborn')
+fig,ax=plt.subplots()
+ax.plot(highs, c="red")
+
+plt.title("daily high temps", fontsize=24)
+plt.xlabel('', fontsize=16)
+plt.ylabel("Temperature (F)", fontsize=16)
+plt.tick_params(axis='both', which='major', labelsize=16)
+plt.show()
