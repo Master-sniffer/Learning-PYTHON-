@@ -23,8 +23,10 @@ with open (filename) as f:
 
 plt.style.use('seaborn')
 fig,ax=plt.subplots()
-ax.plot(dates,highs, c="red")
-plt.plot(dates, lows, c ='blue')
+ax.plot(dates,highs, c="red", alpha=0.5) #строим диаграмму горячей погоды
+ax.plot(dates, lows, c ='blue', alpha=0.5) #строим диаграмму холодной погоды
+plt.fill_between(dates,highs, lows, facecolor='blue', alpha=0.1) #fill_between получает значения X (dates) и 2 серии значений Y, после чего он заполняет зоны между ними 
+#alpha - отвечает за прозрачность вывода (0 -> полная прозрачность и 1 -> непрозрачность)
 
 plt.title("daily high temps in 2018", fontsize=24)
 plt.xlabel('', fontsize=16)
