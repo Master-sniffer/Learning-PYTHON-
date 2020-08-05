@@ -5,7 +5,8 @@ from matplotlib import pyplot as plt
 from datetime import datetime
 
 #filename='sitka_weather_07-2018_simple.csv' # Файл находится в Extra FIles в generating data
-filename='sitka_weather_2018_simple.csv'
+#filename='sitka_weather_2018_simple.csv'
+filename='death_valley_2018_simple.csv'
 with open (filename) as f:
   reader=csv.reader(f)
   header_row=next(reader)
@@ -15,11 +16,15 @@ with open (filename) as f:
   dates, highs , lows=[], [], []
   for row in reader:
     current_date=datetime.strptime(row[2], "%Y-%m-%d") #"%Y-%m-%d" показывает, что за чем стоит в файле - сначала идет год, потом месяц и день !
-    high=int(row[5]) 
-    low=int(row[6])
-    lows.append(low)
-    highs.append(high)
-    dates.append(current_date)
+    try:
+      high=int(row[5]) 
+      low=int(row[6])
+    except ValueError:
+      print (f"Missing data for {current_date}")
+    else:
+      lows.append(low)
+      highs.append(high)
+      dates.append(current_date)
 
 plt.style.use('seaborn')
 fig,ax=plt.subplots()
