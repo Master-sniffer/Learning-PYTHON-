@@ -3,10 +3,12 @@
 import csv 
 from matplotlib import pyplot as plt
 from datetime import datetime
+import json
 
 #filename='sitka_weather_07-2018_simple.csv' # Файл находится в Extra FIles в generating data
 #filename='sitka_weather_2018_simple.csv'
 filename='death_valley_2018_simple.csv'
+#filename='eq_data_1_day_m1.json'
 with open (filename) as f:
   reader=csv.reader(f)
   header_row=next(reader)
