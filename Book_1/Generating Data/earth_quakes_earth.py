@@ -22,6 +22,8 @@ for eq_data in all_ed_dict:
 #Ниже приведен один из вариантов , как можно все сделать
 #data=[Scattergeo(lon=lons , lat=lats)]  #Отмечаем точки на карте путем ввода широты и долготы
 #Или же можно сделать так
+
+nam=all_ed_data['metadata']['title']
 data=[{
   'type' : 'scattergeo',
   'lon' : lons,
@@ -35,6 +37,6 @@ data=[{
     'colorbar' : {'title' : 'Magnitude'},
   },
 }]
-my_layout= Layout(title="EARTH, BUT NOT SPACE")
+my_layout= Layout(title=nam)
 fig={'data': data, 'layout' : my_layout}
 offline.plot(fig , filename="global_earthquakes.html")
