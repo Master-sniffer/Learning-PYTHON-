@@ -12,7 +12,7 @@ response_dict=r.json()
 print (f"Total reps: {len(response_dict)}")
 print (response_dict.keys())
 repo_dicts=response_dict['items']
-repo_names, stars, labels = [], [], []
+repo_links, stars, labels = [], [], []
 print (f"That's how many reps in items {len(repo_dicts)}")
 repo_dick=repo_dicts[0]
 print (f"\nKeys: {len(repo_dick)}")
@@ -26,7 +26,10 @@ for repo_dick in  (repo_dicts):
   #print (f"owner: {repo_dick['stargazers_count']}")
   #print (f"owner: {repo_dick['html_url']}")
   #print (f"owner: {repo_dick['description']}")
-  repo_names.append(repo_dick['name'])
+  repo_name=(repo_dick['name'])
+  repo_url=(repo_dick['html_url'])
+  repo_link=f"<a href='{repo_url}' >{repo_name}</a>"
+  repo_links.append(repo_link)
   stars.append(repo_dick['stargazers_count'])
   owner= repo_dick['owner']['login']
   description=repo_dick['description']
@@ -35,7 +38,7 @@ for repo_dick in  (repo_dicts):
 
 data=[{
   'type': 'bar',
-  'x': repo_names,
+  'x': repo_links,
   'y':stars,
   'hovertext': labels,
   'marker':{
