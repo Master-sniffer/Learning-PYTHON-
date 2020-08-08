@@ -1,3 +1,4 @@
+#import this # delete the first hashtag to see the truth
 #Making simple figure
 
 import matplotlib.pyplot as plt
