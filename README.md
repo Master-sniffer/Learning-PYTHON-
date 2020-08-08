@@ -4,8 +4,9 @@ Here I will publish some materials about stuff I learn by myself or from the boo
 Installing PYTHON:
 1) Download https://code.visualstudio.com/ 
 2) Run the programm 
-3) Install Python Extension
-4) ???
+3) Install Python Extension and close the app
+4) download and install Python from https://www.python.org/downloads/
+5) Launch Visual Code again and in the left bottom choose the interpreter for Python. You will see a few tabs in the middle on the top of the VS Code and there you should see something like Python 3.8.5 (and a path below it). *IF IT SHOWS YOU ONLY ONE OPTION - THAT YOU NEED TO GIVE HIM A PATH TO THE FILE - DO IT, IT SHOULD HELP, OTHERWISE REINSTALL PYTHON*
 5) PROFIT !!!
 *try this extension out by making a new file with .py in the end (EXAMPLE.py) and printing Hello World: print ("Hello World") run this programm*
 #
