@@ -1,6 +1,7 @@
 #Ща мы будем мутить моделирование бросков кубиков (Предлагаю начать с 2 кубиков). Краткий экскурс: при броске кубика, мы имеем равные шансы получить число от 1 до 6, но когда мы кидаем 2 кубика, эти шансы меняется.
 #Plotly оч полезная вещь, если вы решили сделать визуализацию данных или прочих таких интересных вещей. Без лишних слов - ПОЕХАЛИ !
 
+#import this # delete the first hashtag to see the truth
 from plotly.graph_objs import Bar, Layout
 from plotly import offline
 from random import randint
