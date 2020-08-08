@@ -19,7 +19,8 @@ Upgrading pip:
 1) MAC\LINUX:   pip install -U pip
 2) WINDOWS: python -m pip install -U pip
 
-Alternative way (*This one is not as effective as a previous one, but if u plan to do some simple tasks - this one can work out*):
+#
+Alternative way to use PYTHON (*This one is not as effective as a previous one, but if u plan to do some simple tasks - this one can work out*):
 1) Register\Just use - repl.it
 #
 
