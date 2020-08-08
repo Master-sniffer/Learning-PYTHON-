@@ -1,3 +1,4 @@
+#import this # delete the first hashtag to see the truth
 import pygame, sys, json
 from time import sleep
 #my folders
