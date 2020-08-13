@@ -1,5 +1,6 @@
-from django.shortcuts import render # функция render генерирует ответ на основании данных, полученных от представлений
+from django.shortcuts import render, redirect # функция render генерирует ответ на основании данных, полученных от представлений
 from .models import Topic
+from .forms import TopicForm
 
 def index(request): #request нужен, чтобы сайт не запускался каждый раз впустую
     #Домашняя страница
@@ -16,3 +17,17 @@ def topic (request, topic_id):
     entries= topic.entry_set.order_by('-date_added') # ЭТО ВСЕ МОЖНО ПРОПИСАТЬ В ОБОЛОЧКЕ DJANGO
     context= {'topic' : topic, 'entries' : entries}
     return render (request, 'learning_logs/topic.html' , context)
+
+def new_topic(request):
+    # Идет определение новой темы
+    if request.method !='POST':
+        # Данные не отправлялись , поэтому создается пустая форма
+        form=TopicForm()
+    else:
+        form = TopicForm(data=request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('learning_logs:topics')
+    # вывод пустой или недействительной формы 
+    context={'form' : form}
+    return render (request, 'learning_logs/new_topic.html', context)
