@@ -1,0 +1,15 @@
+{% extends 'learning_logs/base.html' %}
+{% block content %}
+    {% if form.errors%}  <!--  Если у формы есть атрибут errors, то у нас будет сообщение об ошибке  -->
+        <p>Your username and password didnt match, lmao. Try again m8</p>
+    {% endif%}
+
+    <form method='post' action="{% url 'users:login' %}"> <!-- аргументу action мы присвоили url страницы входа. action поможет нам обработать форму   -->
+        {% csrf_token%}
+        {{form.as_p}} <!--   представление отправляет форму шаблону, которую мы выводим в этой строке -->
+        <button name='suBmIT'>Log in</button>   <!-- добавляем кнопку отправки данных  -->
+        <input type='hidden' name='next'     
+            value="{% url 'learning_logs:index' %}" />   <!-- здесь мы включаем скрытый элемент next. value сообщает Django куда направить юзверя после успешного входа ( у нас он возвращается на главную страницу)  -->
+    </form>
+
+{% endblock content%}
