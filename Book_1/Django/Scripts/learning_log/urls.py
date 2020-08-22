@@ -18,5 +18,6 @@ from django.urls import path, include
 
 urlpatterns = [ # эта переменная включает набор URL-адресов из приложений в проект
     path('admin/', admin.site.urls),
+    path ('users/', include('users.urls')), #так мы будем включать url адреса, которые были написаны для users
     path ('', include('learning_logs.urls')),
 ]
