@@ -1,13 +1,54 @@
-<p> <!-- USE THIS AS A SAMPLE       -->
-    <a href="{% url 'learning_logs:index'%}">Learning Log</a> - <!--     -->  
-    <a href="{% url 'learning_logs:topics'%}">Topics</a> -
-    {% if users.is_authenticated %} <!--  если юзер аутенфицировался, то мы скажем ему приветствие   -->  
-        <p>Hello, {{user.username}} !</p>
-            <a href="{% url 'users:logout' %}">Log out</a>
-    {% else %}
-        <a href="{% url 'users:register' %}">Register</a> -
-        <a href="{% url 'users:login' %}">Log in</a>  <!--  Если юзера нет, то мы выводим его на другую страницу   -->  
-    {% endif%}
-</p>
+{% load bootstrap4 %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="{% url 'learning_logs:index' %}">Learning logs</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        {% if users.is_authenticated %}
+            <li class="nav-item active">
+                <a class="nav-link" href="{% url 'learning_logs:topics'%}">topics <span class="sr-only">(current)</span></a>  <!-- ЕС ЧО НАДО ГЛЯНУТЬ ОТСТУП     -->
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'users:logout' %}">logout</a>
+            </li>
+        {% else %}
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'users:register' %}">Register</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'users:login' %}">login</a>
+            </li>
+        {% endif %}
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Dropdown
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
 
-{%block content%}{% endblock content%}
+<main role="main" class="container">
+    <div class="pb-2 mb-2 border-bottom">
+        {% block page_header %}{% endblock page_header %}
+    </div>
+    <div>
+        {% block content%}{% endblock content %}
+    </div>
+</main>
