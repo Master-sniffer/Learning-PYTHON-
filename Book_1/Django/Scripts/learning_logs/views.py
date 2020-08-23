@@ -2,23 +2,27 @@ from django.shortcuts import render, redirect # функция render генер
 from .models import Topic, Entry
 from .forms import TopicForm, EntryForm
 from django.urls import reverse
+from django.contrib.auth.decorators import login_required
 
 def index(request): #request нужен, чтобы сайт не запускался каждый раз впустую
     #Домашняя страница
     return render(request, 'learning_logs/index.html') # Путь к файлу, который отвечает за внешку. функция render использует два аргумента -> исходный объект запроса и шаблон
     # порядок, как все происходит : если URL запроса совпадает с только что определенной схемой, тогда django в файле views.py ищет функцию index() 
 
+@login_required # проверяет, зареган ли юзверь
 def topics(request):
     topics = Topic.objects.order_by('date_added')
     context= {'topics' : topics}
     return render (request, "learning_logs/topics.html" , context)
 
+@login_required
 def topic (request, topic_id):
     topic= Topic.objects.get(id=topic_id) # ЭТО ВСЕ МОЖНО ПРОПИСАТЬ В ОБОЛОЧКЕ DJANGO
     entries= topic.entry_set.order_by('-date_added') # ЭТО ВСЕ МОЖНО ПРОПИСАТЬ В ОБОЛОЧКЕ DJANGO
     context= {'topic' : topic, 'entries' : entries}
     return render (request, 'learning_logs/topic.html' , context)
 
+@login_required
 def new_topic(request):
     # Идет определение новой темы
     if request.method !='POST':
@@ -33,6 +37,7 @@ def new_topic(request):
     context={'form' : form}
     return render (request, 'learning_logs/new_topic.html', context)
 
+@login_required
 def new_entry(request, topic_id):
     topic=Topic.objects.get(id=topic_id)
     if request.method != 'POST':
@@ -47,6 +52,7 @@ def new_entry(request, topic_id):
     context={'topic':topic, 'form':form}
     return render (request, "learning_logs/new_entry.html", context)
 
+@login_required
 def edit_entry(request, entry_id):
     entry=Entry.objects.get(id=entry_id)
     topic=entry.topic
