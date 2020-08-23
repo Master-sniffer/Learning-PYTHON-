@@ -35,6 +35,9 @@ INSTALLED_APPS = [
     'learning_logs',
     'users',
 
+    #Сторонние приложухи
+    'bootstrap4',
+
 
 
     # Приложения Django по умолчанию
