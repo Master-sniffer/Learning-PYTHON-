@@ -18,7 +18,10 @@ Installing pip (*SKIP THIS PIECE OF GUIDE IF YOU'VE ALREADY INSTALLED PYTHON VER
 Upgrading pip:
 1) MAC\LINUX:   pip install -U pip
 2) WINDOWS: python -m pip install -U pip
-
+#
+Upgrading all python packages:
+1) pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U
+2) That's it
 #
 Alternative way to use PYTHON (*This one is not as effective as a previous one, but if u plan to do some simple tasks - this one can work out*):
 1) Register\Just use - repl.it
