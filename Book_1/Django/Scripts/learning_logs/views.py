@@ -4,6 +4,7 @@ from .forms import TopicForm, EntryForm
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django.http import Http404
+import requests
 
 def index(request): #request нужен, чтобы сайт не запускался каждый раз впустую
     #Домашняя страница
