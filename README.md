@@ -34,7 +34,7 @@ First Method:
 
 Second method:
 
-_1)pip install * 
+1)pip install * 
 
 2)Instead of the the * put the name of the package
 #
