@@ -23,26 +23,17 @@ Upgrading all python packages:
 1) pip list --outdated --format=freeze | grep -v '^\-e' | cut -d = -f 1  | xargs -n1 pip install -U
 2) That's it
 #
-Installing packages through pip
+Installing packages through pip:
+1) pip3 install * 
+2) Instead of the the * put the name of the package
 
-First Method:
-
-1)pip3 install * 
-
-2)Instead of the the * put the name of the package
-
-
-Second method:
-
-1)pip install * 
-
-2)Instead of the the * put the name of the package
+Alternative method:
+1) pip install * 
+2) Instead of the the * put the name of the package
 #
 Alternative way to use PYTHON (*This one is not as effective as a previous one, but if u plan to do some simple tasks - this one can work out*):
 1) Register\Just use - repl.it
 #
-
-
 Structure of my code ( and themes ) looks like this :
 
 I write code on the same theme and i make 1 empty line between different sub-themes
