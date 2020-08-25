@@ -26,6 +26,7 @@ Upgrading all python packages:
 Installing packages through pip
 
 First Method:
+
 1)pip3 install * 
 
 2)Instead of the the * put the name of the package
