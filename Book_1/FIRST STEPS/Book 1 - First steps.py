@@ -1,5 +1,29 @@
 #import this # delete the first hashtag to see the truth
 
+
+#String methods 
+
+#isAlpha возвращает True, если строка состоит только из букв и не является пустой
+print ('hello'.isalpha())
+print ('hello1'.isalpha())
+
+#isalnum возвращает True , если строка состоит из букв и цифр
+print ('hello12'.isalnum()) 
+print ('hello'.isalnum()) 
+
+#isdecimal возвращает True , если строка состоит только из цифровых символов и не является пустой
+print ('123'.isdecimal())
+print ('hello'.isdecimal())
+
+#isspace возвращает значение True если строка состоит из символа пробела, табуляции , новой строки и не является пустой
+print (' '.isspace())
+print ('hello '.isspace())
+
+#istitle Возвращает True , если все слова начинаются с большой буквы , а потом с маленькой 
+print ('Hello World'.istitle())
+print ('Hello WORLD'.istitle())
+
+
 #deleting and inserting different stuff in list
 
 baba = ["mama","papa","babu"]
