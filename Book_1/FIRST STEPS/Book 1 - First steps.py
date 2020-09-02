@@ -23,7 +23,20 @@ print ('hello '.isspace())
 print ('Hello World'.istitle())
 print ('Hello WORLD'.istitle())
 
+#startswith and endswith - первый метод направлен на проверку, начинается ли строка с символа(или слова), который написан в скобках. Второй метод проверяет последнее слово
+print ('hello mama'.startswith('hello'))
+print ('hello mama'.endswith('mama'))
 
+#join and split - Первый метод соединяет все слова с списке с помощью символа, который мы прописываем в начале. Второй метод - разделяет предложение (aka string) , на объекты в списке. 
+print (', '.join(['cats','dogs','lions'])
+print ('my name is human'.split())
+# если мы хотим разделить все это по определенному принципу, то надо прописать в split , по какому именно
+print ('myABCnameABCisABChuman'.split('ABC'))
+
+#center и rjust , ljust
+print (('hello').center(20,'=') #Такой метод будет полезен, если мы хотим создать более-менее адекватный юзер интерфейс
+
+       
 #deleting and inserting different stuff in list
 
 baba = ["mama","papa","babu"]
