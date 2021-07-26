@@ -1,0 +1,17 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+A pososat ?
+{% endblock %}
+
+{% block text %}
+    <h1>Make a task</h1>
+    <form method="POST">
+        {% csrf_token %}
+        {{form.title}}<br>
+        {{form.text}}
+
+        <button type="submit" class="btn btn-success">America</button>
+        <span>{{error}}</span>
+    </form>
+{% endblock %}

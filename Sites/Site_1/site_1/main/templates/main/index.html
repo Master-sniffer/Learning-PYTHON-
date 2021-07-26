@@ -1,0 +1,26 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block text %}
+<p>A pososat ? Vsegda za ? </p>
+{% if tasks %}
+{% for element in tasks %}
+    <div class="alert alert-warning mt-2">
+        <h3>
+            {{element.title}}
+        </h3>
+        <p>{{element.text}}</p>
+    </div>
+
+{% endfor %}
+
+{% else %}
+    <h1>Log ebani</h1>
+
+{% endif %}
+{% endblock %}
+
+
