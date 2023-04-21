@@ -1,4 +1,4 @@
-﻿asgiref==3.2.10
+asgiref==3.2.10
 astroid==2.4.2
 beautifulsoup4==4.9.1
 colorama==0.4.3
@@ -17,7 +17,7 @@ pylint-plugin-utils==0.6
 pytz==2020.1
 six==1.15.0
 soupsieve==2.0.1
-sqlparse==0.3.1
+sqlparse==0.4.4
 toml==0.10.1
 whitenoise==5.2.0
 wrapt==1.12.1
